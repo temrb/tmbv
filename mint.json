@@ -8,7 +8,6 @@
 	"favicon": "/favicon.svg",
 	"colors": {
 		"primary": "#61677A",
-		"light": "#FFF6E0",
 		"dark": "#272829",
 		"background": {
 			"dark": "#272829"
@@ -47,8 +46,6 @@
 		"thumbsRating": true,
 		"suggestEdit": true
 	},
-	"theme": "quill",
-
 	"seo": {
 		"indexHiddenPages": true
 	},
@@ -65,16 +62,6 @@
 		{
 			"group": "Career",
 			"pages": ["productivity/career/search-and-outreach"]
-		}
-	],
-	"tabs": [
-		{
-			"name": "Development",
-			"url": "development"
-		},
-		{
-			"name": "Productivity",
-			"url": "productivity"
 		}
 	]
 }
