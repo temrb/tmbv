@@ -1,9 +1,9 @@
 {
 	"$schema": "https://mintlify.com/schema.json",
-	"name": "Tim Bakhriddinov",
+	"name": "tmbv",
 	"metadata": {
 		"author": "Temur Bakhriddinov",
-		"description": "I take a data-driven approach in product development, focusing on creating user-centric solutions from start to finish. Continuous improvement is central to my professional journey. I strongly believe in the power of education, self-improvement, and striving for excellence, both personally and professionally. I'm known for my refusal to settle for mediocrity and my ability to thrive when facing new challenges."
+		"description": "Venture-driven product developer interested in building solutions that address real problems."
 	},
 	"favicon": "/favicon.svg",
 	"colors": {
@@ -14,18 +14,18 @@
 			"dark": "#272829"
 		}
 	},
+	"modeToggle": {
+		"default": "light",
+		"isHidden": true
+	},
 	"topbarCtaButton": {
-		"name": "Schedule a chat!",
-		"url": "https://calendar.app.google/VUfUNdpNtK5hAaVb9"
+		"name": "Email",
+		"url": "mailto:timb.fwd+tmbv@gmail.com"
 	},
 	"primaryTab": {
 		"name": "About"
 	},
 	"footerSocials": [
-		{
-			"type": "website",
-			"url": "mailto:timb.fwd+tmbv@gmail.com"
-		},
 		{
 			"type": "linkedin",
 			"url": "https://www.linkedin.com/in/timbli/"
@@ -47,6 +47,7 @@
 		"thumbsRating": true,
 		"suggestEdit": true
 	},
+	"theme": "quill",
 
 	"seo": {
 		"indexHiddenPages": true
@@ -75,8 +76,5 @@
 			"name": "Productivity",
 			"url": "productivity"
 		}
-	],
-	"metadata": {
-		"og:image": "link to your default meta tag image"
-	}
+	]
 }
