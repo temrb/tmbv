@@ -1,0 +1,82 @@
+{
+	"$schema": "https://mintlify.com/schema.json",
+	"name": "Tim Bakhriddinov",
+	"metadata": {
+		"author": "Temur Bakhriddinov",
+		"description": "I take a data-driven approach in product development, focusing on creating user-centric solutions from start to finish. Continuous improvement is central to my professional journey. I strongly believe in the power of education, self-improvement, and striving for excellence, both personally and professionally. I'm known for my refusal to settle for mediocrity and my ability to thrive when facing new challenges."
+	},
+	"favicon": "/favicon.svg",
+	"colors": {
+		"primary": "#61677A",
+		"light": "#FFF6E0",
+		"dark": "#272829",
+		"background": {
+			"dark": "#272829"
+		}
+	},
+	"topbarCtaButton": {
+		"name": "Schedule a chat!",
+		"url": "https://calendar.app.google/VUfUNdpNtK5hAaVb9"
+	},
+	"primaryTab": {
+		"name": "About"
+	},
+	"footerSocials": [
+		{
+			"type": "website",
+			"url": "mailto:timb.fwd+tmbv@gmail.com"
+		},
+		{
+			"type": "linkedin",
+			"url": "https://www.linkedin.com/in/timbli/"
+		},
+		{
+			"type": "github",
+			"url": "https://github.com/temrb"
+		},
+		{
+			"type": "youtube",
+			"url": "https://www.youtube.com/@tmerb"
+		},
+		{
+			"type": "website",
+			"url": "https://careerflo.co"
+		}
+	],
+	"feedback": {
+		"thumbsRating": true,
+		"suggestEdit": true
+	},
+
+	"seo": {
+		"indexHiddenPages": true
+	},
+	"analytics": {
+		"ga4": {
+			"measurementId": "G-DMRR9NDQZ2"
+		}
+	},
+	"navigation": [
+		{
+			"group": "UI / UX",
+			"pages": ["development/ui-ux/toast-notifications"]
+		},
+		{
+			"group": "Career",
+			"pages": ["productivity/career/search-and-outreach"]
+		}
+	],
+	"tabs": [
+		{
+			"name": "Development",
+			"url": "development"
+		},
+		{
+			"name": "Productivity",
+			"url": "productivity"
+		}
+	],
+	"metadata": {
+		"og:image": "link to your default meta tag image"
+	}
+}

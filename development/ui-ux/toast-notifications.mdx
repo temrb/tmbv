@@ -1,0 +1,142 @@
+---
+title: "Toast Notifications"
+description: "In this tutorial, we’ll learn how to create toast notifications for Next.js applications using Sonner."
+og:title: "Toast Notifications"
+og:description: "In this tutorial, we’ll learn how to create toast notifications for Next.js applications using Sonner."
+icon: "bread-slice"
+iconType: "solid"
+
+---
+
+<Frame type="glass">
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/-kyX72oGS7Q"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
+</Frame>
+
+>This guide shows how to add toast notifications to your web app using the [Sonner](https://sonner.emilkowal.ski/) component library. We'll cover installation, setup in a [Next.js](https://nextjs.org/) app, and examples for success and error messages. By following this, you'll improve user interaction with instant feedback.
+
+## ✨ Prerequisites
+
+- Basic knowledge of React and Next.js
+- Node.js installed on your machine
+- A Next.js project set up
+- Shadcn/UI already setup in your project (see [installation guide](https://ui.shadcn.com/docs/installation/next))
+
+#### Project Structure (Next.js 13+)
+
+  ```bash
+    ├── src
+    │   ├── app
+    │   │   ├── page.tsx
+    │   │   ├── layout.tsx   # Root Layout
+    │   │   ├── loading.tsx
+    │   ├── components
+    │   │   └── ui
+    │   │       └── sonner.tsx   # Sonner component
+    │   ├── ...
+  ```
+
+##  Integrate Sonner
+
+<Steps>
+  <Step title="Installation">
+    To start, install the Sonner library in your app using npx (or via other [installation options](https://ui.shadcn.com/docs/components/sonner)):
+
+    ```bash
+    npx shadcn-ui@latest add sonner
+    ```
+
+    The executable above will add a sonner component inside of the `components/ui` directory.
+
+    ```tsx
+'use client';
+
+import { useTheme } from 'next-themes';
+import { Toaster as Sonner } from 'sonner';
+
+type ToasterProps = React.ComponentProps<typeof Sonner>;
+
+const Toaster = ({ ...props }: ToasterProps) => {
+	const { theme = 'system' } = useTheme();
+
+	return (
+		<Sonner
+			theme={theme as ToasterProps['theme']}
+			className='toaster group'
+			toastOptions={{
+				classNames: {
+					toast: 'group toast group-[.toaster]:bg-white group-[.toaster]:text-stone-950 group-[.toaster]:border-stone-200 group-[.toaster]:shadow-lg dark:group-[.toaster]:bg-stone-950 dark:group-[.toaster]:text-stone-50 dark:group-[.toaster]:border-stone-800',
+					description:
+						'group-[.toast]:text-stone-500 dark:group-[.toast]:text-stone-400',
+					actionButton:
+						'group-[.toast]:bg-stone-900 group-[.toast]:text-stone-50 dark:group-[.toast]:bg-stone-50 dark:group-[.toast]:text-stone-900',
+					cancelButton:
+						'group-[.toast]:bg-stone-100 group-[.toast]:text-stone-500 dark:group-[.toast]:bg-stone-800 dark:group-[.toast]:text-stone-400',
+				},
+			}}
+			{...props}
+		/>
+	);
+};
+
+export { Toaster };
+    ```
+
+This component will be used to display toast notifications globally in your app! You can customize the appearance of the toast notifications by modifying the `classNames` object in the `toastOptions` prop.
+
+
+  </Step>
+  <Step title="Adding Sonner">
+  <Tip>To use Sonner for toast notifications, you typically include it in a ``provider component``
+  that wraps your entire app within the root layout file. However, for simplicity, we'll add sonner directly.</Tip>
+
+    Import the Toaster component inside the root layout file.
+    ```tsx
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import '../styles/globals.css';
+import { Toaster } from '@/components/ui/sonner' // <----- Import Toaster component
+...
+    ```
+
+    Add the Toaster component to the Root Layout function in the layout.tsx file.
+    ```tsx
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+        return (
+            <html lang='en' suppressHydrationWarning>
+                <body className={inter.className}>
+                    {children}
+                    <Toaster /> // <------ Add Toaster component here
+                </body>
+            </html>
+        );
+};
+    ```
+
+    <Check>This Sonner component can now be programmatically used to display toast notifications globally.</Check>
+
+  </Step>
+  <Step title="Calling and using Sonner">
+  Inside of any component or page, you can now import and call the Sonner component to display a toast notification.
+
+  ```tsx
+  'use client'; // <--- Sonner works in the client-side only
+import { toast } from 'sonner';
+  ```
+
+  ### Display a success message
+  ```tsx
+  toast.success('Event has been created')
+  ```
+
+  View full [docs](https://sonner.emilkowal.ski/) to see all the available options for the `toast` function.
+
+  </Step>
+</Steps>
