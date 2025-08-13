@@ -6,9 +6,6 @@
 		"primary": "#272829"
 	},
 	"favicon": "/favicon.svg",
-	"icons": {
-		"library": "lucide"
-	},
 	"fonts": {
 		"family": "Hubot Sans"
 	},
@@ -64,6 +61,11 @@
 		},
 		"posthog": {
 			"apiKey": "phc_QAxLviyUtYcGgxeRY7bPB0P40XUl9uYr45bxa73ytPM"
+		}
+	},
+	"errors": {
+		"404": {
+			"redirect": true
 		}
 	}
 }
