@@ -1,0 +1,69 @@
+{
+	"$schema": "https://mintlify.com/docs.json",
+	"theme": "maple",
+	"name": "Temur",
+	"colors": {
+		"primary": "#272829"
+	},
+	"favicon": "/favicon.svg",
+	"icons": {
+		"library": "lucide"
+	},
+	"fonts": {
+		"family": "Hubot Sans"
+	},
+	"navigation": {
+		"groups": [
+			{
+				"group": "Career",
+				"pages": ["pages/career/search-and-outreach"]
+			}
+		]
+	},
+
+	"contextual": {
+		"options": ["perplexity", "chatgpt", "claude", "copy", "view"]
+	},
+	"appearance": {
+		"default": "light",
+		"strict": true
+	},
+	"navbar": {
+		"primary": {
+			"type": "button",
+			"label": "Let's Chat",
+			"href": "https://go.tmbv.me/calendly"
+		},
+		"links": [
+			{
+				"label": "Email",
+				"href": "mailto:timb.fwd+mintlify@gmail.com"
+			}
+		]
+	},
+	"seo": {
+		"metatags": {
+			"title": "tmbv",
+			"author": "Temur",
+			"description": "Currently building.",
+			"og:type": "website",
+			"og:site_name": "tmbv"
+		},
+		"indexing": "all"
+	},
+	"footer": {
+		"socials": {
+			"linkedin": "https://go.tmbv.me/linkedin",
+			"github": "https://go.tmbv.me/github",
+			"youtube": "https://go.tmbv.me/youtube"
+		}
+	},
+	"integrations": {
+		"ga4": {
+			"measurementId": "G-TJF1SLZCLF"
+		},
+		"posthog": {
+			"apiKey": "phc_QAxLviyUtYcGgxeRY7bPB0P40XUl9uYr45bxa73ytPM"
+		}
+	}
+}
