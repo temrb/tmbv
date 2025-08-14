@@ -28,8 +28,8 @@ tmbv/
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (version 16 or higher)
-- npm or yarn package manager
+- [Node.js](https://nodejs.org/)
+- Any package manager (npm, pnpm, bun)
 
 ### Local Development
 
@@ -85,5 +85,3 @@ The site is automatically deployed to **[tmbv.me](https://www.tmbv.me/)** throug
 - **[Mintlify Documentation](https://mintlify.com/docs)** - Complete guide for Mintlify features and configuration
 - **[Mintlify GitHub](https://github.com/mintlify/mint)** - Source code and community discussions
 - **[Live Site](https://tmbv.me)** - Visit the deployed website
-
----

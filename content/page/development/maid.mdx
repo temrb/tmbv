@@ -7,7 +7,7 @@ author: 'Temur Bakhriddinov'
 date: 2025-08-13
 ---
 
-## First, what's <span style={{background: 'linear-gradient(45deg, #b8579c, #6ba3d6, #8db672, #d67e6b, #9c85b8, #72b8a3, #b672a8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontWeight: 'bold'}}>vibe coding</span> ?
+## First, what's <span style={{background: 'linear-gradient(45deg, #640D5F, #B12C00, #EB5B00, #FFCC00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontWeight: 'bold', fontFamily: 'Comic Sans MS, cursive'}}>vibe coding</span> ?
 
 <Frame caption='https://www.reddit.com/r/ProgrammerHumor/comments/1jcjrzf/vibecoding'>
 	<img
@@ -92,7 +92,7 @@ You'll use an AI like [ChatGPT](https://chat.openai.com/) as a partner to progre
 
 With a list of potential technologies from "The How," you're ready to transition from conversation to documentation. Task the AI with conducting **deep research** to generate a formal analysis report. This deliverable should outline all viable tools and libraries, provide a comparison matrix of pros and cons for your use case, offer a clear recommendation, and discuss any integration considerations that might affect the overall architecture.
 
-### Putting It All Together: A Scenario
+### Scenario
 
 Let's see how this research phase works for a non-technical user who wants to build an `internal web scraping tool`.
 
@@ -135,7 +135,7 @@ Let's see how this research phase works for a non-technical user who wants to bu
   </Accordion>
 </AccordionGroup>
 
-### From Dialogue to Deep Research
+### In Essence...
 
 That final question is the perfect outcome of the Socratic funnel. The user started with a vague idea ("get data") and ended with a specific, well-defined query ("pros and cons of these tools"). This question now becomes the direct prompt for the AI's analysis report.
 
@@ -151,3 +151,84 @@ Tool Analysis Report:
 Recommendation: Playwright + structured output with Pydantic.
 Reasoning: Handles modern web apps, offers fast execution, and ensures type-safe outputs for reliable data processing.
 ```
+
+## Build Context Library
+
+With your research complete, it's time to build the project's **context library**. This is the most critical step in the MAID framework. It’s the official, machine-readable blueprint that acts as a single source of truth for your AI collaborator.
+
+A well-built context library prevents AI amnesia. Instead of making decisions on the fly, the AI will consistently refer to this library, ensuring the code it produces aligns perfectly with your project's rules and architecture.
+
+<Tabs>
+  <Tab title="Document Indexing" icon="book">
+    First, you must provide the AI with the official documentation for the technologies you chose during research. If the AI doesn't have the manufacturer's instructions, it will invent its own, often leading to bugs and deprecated code.
+
+    For our web scraper, we need the docs for `Playwright` and `Pydantic`. You have two excellent options for this:
+
+    **Deep Control (gpt-crawler)**
+
+    For maximum control, use a tool like [gpt-crawler](https://github.com/BuilderIO/gpt-crawler) to crawl and index the documentation websites yourself. This creates a local, structured JSON file of the content.
+
+    ```bash
+    # Crawl Playwright's Python docs
+    npx gpt-crawler --url https://playwright.dev/python/docs/intro --output playwright-docs.json
+
+    # Crawl Pydantic's docs
+    npx gpt-crawler --url https://docs.pydantic.dev/latest/ --output pydantic-docs.json
+    ```
+
+    **Quick Start (Context7)**
+
+    For a faster, no-code approach, a service like [Context7](https://context7.com) (available as MCP) allows you to simply paste the documentation URLs. It handles the crawling and provides a ready-to-use context package for your AI.
+
+  </Tab>
+  <Tab title="Project Rules" icon="shield">
+    Next, you create a project rules file. This is where you enforce your architectural decisions and coding standards. Think of it as the list of non-negotiable laws for your project that the AI must always obey.
+
+    **For Claude Code Users:**
+
+    Create a `CLAUDE.md` file in your project root. This follows [Claude Code's memory management system](https://docs.anthropic.com/en/docs/claude-code/memory) and provides hierarchical project instructions that Claude automatically loads.
+
+    **For Other AI Tools:**
+
+    Create a `PROJECT_RULES.md` file with similar structured instructions for your chosen AI assistant.
+
+    This document prevents the AI from deviating from your plan. It should be specific and unambiguous, using structured markdown with clear bullet points.
+
+  </Tab>
+</Tabs>
+
+### Scenario
+
+Continuing with our web scraping tool, we'll create a `CLAUDE.md` file that reflects our findings from the Research phase.
+
+**`CLAUDE.md`:**
+
+```markdown
+# Project: Internal Web Scraper
+
+## 1. Architecture Decisions
+
+- **Core Framework**: Playwright for browser automation.
+- **Data Structuring**: Pydantic models for all scraped data.
+- **Application Type**: Asynchronous command-line tool.
+
+## 2. Non-Negotiable Rules
+
+- All web scraping must respect `robots.txt` directives.
+- Implement a 1-second delay between requests to the same domain.
+- Use structured logging (JSON format) for all errors and warnings.
+
+## 3. Code Standards
+
+- All functions must include type hints.
+- Public functions require a docstring explaining their purpose, arguments, and return value.
+- Secrets or API keys must never be hardcoded.
+```
+
+<Tip>
+	Your project rules file should be a living document. As you make new
+	architectural decisions during the project's lifecycle, update them here
+	first.
+</Tip>
+
+With the `Playwright` and `Pydantic` documentation indexed and the project rules defined in `CLAUDE.md`, our Context Library is complete. We now have a comprehensive blueprint ready to hand off for implementation, ensuring the AI builds exactly what we planned.
