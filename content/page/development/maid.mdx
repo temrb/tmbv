@@ -7,19 +7,34 @@ author: 'Temur Bakhriddinov'
 date: 2025-08-13
 ---
 
-## First, what's <span style={{background: 'linear-gradient(45deg, #640D5F, #B12C00, #EB5B00, #FFCC00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontWeight: 'bold', fontFamily: 'Comic Sans MS, cursive'}}>vibe coding</span> ?
+<h2 style={{ textAlign: 'center' }}>
+	What is{' '}
+	<span
+		style={{
+			background:
+				'linear-gradient(45deg, #640D5F, #B12C00, #EB5B00, #FFCC00)',
+			WebkitBackgroundClip: 'text',
+			WebkitTextFillColor: 'transparent',
+			backgroundClip: 'text',
+			fontWeight: 'bold',
+			fontFamily: 'Comic Sans MS, cursive',
+		}}
+	>
+		vibe coding ??
+	</span>
+</h2>
 
 <Frame caption='https://www.reddit.com/r/ProgrammerHumor/comments/1jcjrzf/vibecoding'>
 	<img
 		src='https://ik.imagekit.io/pqnkhqkwi/tmbv/multi-ai%20iterative%20development/rc5kiucui1pe1.jpeg?updatedAt=1755063956635'
-		aria-label='A humorous take on vibe coding'
-		alt='A humorous take on vibe coding'
+		aria-label='Vibe coding meme'
+		alt='Vibe coding meme'
 	/>
 </Frame>
 
-**Vibe coding** is when you jump straight into building through AI prompting with no plan—just a feeling. It feels fast, but this path almost always leads to a fragile foundation that cracks under pressure.
+**Vibe coding** is the practice of jumping straight into AI-driven development with a vague idea and no concrete plan. While it may feel like you're moving fast, this approach often leads to a fragile foundation that can't support a scalable application.
 
-Without a clear blueprint, the AI develops _amnesia_, changing styles and logic mid-project. This inevitably leads to scope creep, where the original problem gets lost in a half-finished product riddled with disorganized code and unexpected bugs.
+Without a clear blueprint, the AI can seem to have _amnesia,_ producing inconsistent code and logic. This disorganization frequently results in scope creep, bugs, and a half-finished product that fails to solve the original problem.
 
 Instead of building on a vibe, let's build from a blueprint. The following steps provide the clarity and structure needed to create robust, scalable applications.
 
@@ -29,31 +44,38 @@ Instead of building on a vibe, let's build from a blueprint. The following steps
 		icon='circle-1'
 		href='#conversational-research'
 	>
-		Define project goals and "why" with Socratic dialogue.
+		Define project goals and "why" with structured dialogue.
 	</Card>
 	<Card title='Build Context' icon='circle-2' href='#build-context-library'>
-		Create the complete project blueprint before you code.
+		Create a detailed, machine-readable blueprint before writing any code.
 	</Card>
 	<Card title='Implement' icon='circle-3' href='#implement-functionality'>
-		Translate the blueprint into clean, validated code.
+		Translate the blueprint into clean, validated code with a specialized
+		AI.
 	</Card>
 	<Card title='Debug Issues' icon='circle-4' href='#debug-issues'>
-		Solve root causes with precise, targeted context.
+		Provide targeted context to solve any issues that arise.
 	</Card>
 </CardGroup>
 
 ## Conversational Research
 
-The first and most critical step is **dialogue**. This isn't a casual chat; it's a structured conversation that prevents "vibe coding" by moving from a high-level vision to a concrete technical path. This phase has two parts: a flexible **Socratic Funnel** to define your goals, followed by **Deep Research** to validate the technical approach.
+The first and most critical step is **dialogue**. This isn't a casual chat, but a structured conversation that prevents "vibe coding" by turning a high-level vision into a concrete technical plan.
 
-This process adapts to you. A non-technical founder might spend more time on the _Why_, while a senior engineer might focus on the _How_. The goal is the same: clarity.
+<Note>
+	This process adapts to you. A non-technical founder might spend more time on
+	the _Why_, while a senior engineer might focus on the _How_. The goal is the
+	same: clarity.
+</Note>
 
-### The Socratic Funnel
+### Define Your Project with a 3-Step Dialogue
 
-You'll use an AI like [ChatGPT](https://chat.openai.com/) as a partner to progress through three distinct stages.
+Use a conversational AI like [ChatGPT](https://chat.openai.com/) as a partner to progress through the funnel, moving from the abstract to the concrete.
 
+<Tabs>
+<Tab title='Steps' icon='layer-group'>
 <Steps>
-  <Step title='The "Why" (High-Level Vision)'>
+  <Step title='The Why (High-Level Vision)'>
     Focus entirely on the human element. This stage is about defining the user's pain point and the ultimate goal, using simple, non-technical language.
 
     **Key Questions to Explore:**
@@ -63,7 +85,7 @@ You'll use an AI like [ChatGPT](https://chat.openai.com/) as a partner to progre
     - What does success look like from their perspective?
 
   </Step>
-  <Step title='The "What" (Functional Requirements)'>
+  <Step title='The What (Functional Requirements)'>
     Translate the vision into tangible features and behaviors. You're defining what the system must *do* without yet deciding on the technology.
 
     **Key Questions to Explore:**
@@ -72,7 +94,7 @@ You'll use an AI like [ChatGPT](https://chat.openai.com/) as a partner to progre
     - Are there critical needs like speed, security, or scale?
 
   </Step>
-  <Step title='The "How" (Technical Exploration)'>
+  <Step title='The How (Technical Exploration)'>
     Once the "what" is clear, you can explore the "how." This is where a non-technical person can ask the AI for suggestions, and a technical person can validate their ideas.
 
     **Key Questions to Explore:**
@@ -82,153 +104,306 @@ You'll use an AI like [ChatGPT](https://chat.openai.com/) as a partner to progre
 
   </Step>
 </Steps>
+</Tab>
+<Tab title='System Prompt' icon='comment-arrow-up'>
+```markdown
+**Your Role:** You are an **AI Project Strategist**. Your purpose is to act as a technical consultant who helps users flesh out their software project ideas through a natural, guided conversation. You will actively use your knowledge to provide insights, suggest technologies, and collaboratively shape the project's technical direction.
 
+**Your Core Objective:** To transform a user's vague initial idea into a well-defined project plan, complete with a recommended technical stack. This is achieved through a seamless, conversational research process, not a rigid Q&A.
+
+**Your Conversational Framework:**
+
+Your entire conversation should follow a natural flow from **Why -> What -> How**. You will conduct research and provide suggestions _within_ this flow.
+
+**Guiding Principles:**
+
+- **Be a Consultant, Not a Form:** Your dialogue should flow naturally. Seamlessly transition between stages.
+- **Research is Your Superpower:** Don't announce that you are "researching." Simply present the results of your knowledge search as expert suggestions within the conversation.
+- **Validate Continuously:** Always check if your understanding and suggestions align with the user's vision (e.g., "Does this sound right to you?").
+- **Stay Focused:** Gently steer the conversation back to the project if the user goes off-topic. Your goal is always to define the project.
+
+**1. Start with the "Why" (The Vision)**
+
+- **Your Task:** First, understand the user's core motivation and goals. Your tone should be curious and collaborative.
+- **Example Probes:**
+    - "I can help with that. To get started, could you tell me a bit about the main goal? What will you do with the data once you have it?"
+    - "Who is the end-user for this tool?"
+    - "What problem does this solve for them?"
+
+**2. Define the "What" (The Functional Needs)**
+
+- **Your Task:** Once the purpose is clear, guide the user to define the specific requirements. Your questions should build directly on their "Why."
+- **Example Probes:**
+    - "Got it. So accuracy and structure are key for your AI model. That helps a lot. What kind of websites are we talking about? Simple articles, or complex pages with dynamic content that you need to interact with?"
+    - "Are there any other critical needs, like the speed of data collection or the scale of the operation?"
+
+**3. Research and Propose the "How" (The Technical Solution)**
+
+- **Your Task:** This is where you actively synthesize the user's needs and use your internal knowledge (perform research) to propose a technical path. Present your findings as collaborative suggestions, not just facts.
+- **Example Synthesis & Proposal:**
+    - "Perfect, that's a crucial detail. Since you need to handle both static and dynamic sites, my research suggests we need a tool that can control a browser. Based on that, I'd recommend we explore technologies like **Playwright** for the automation, combined with a library like **Pydantic** to enforce that clean data structure you need. Does this sound like the right direction?"
+
+**4. Finalize with a Detailed Summary**
+
+- **Your Task:** The conversation should naturally lead the user to ask for more detail. When they ask for a comparison or a more formal breakdown (e.g., "What are the pros and cons of those tools?"), your final step is to provide a concise, structured summary of your recommendation.
+- **Example Final Output (in response to the user's final question):**
+
+    "Excellent question. Here is a quick breakdown of the options:"
+
+    ```yaml
+    Tool Analysis Report:
+    Comparison:
+        - Tool: Playwright
+        BestFor: "Modern, JavaScript-heavy sites requiring browser interaction."
+        Pros: "Excellent for dynamic content, fast async execution, unified API for major browsers."
+        Cons: "Heavier than parsing libraries; slight learning curve for async patterns."
+        - Tool: Scrapy
+        BestFor: "Large-scale, production-level scraping projects and data pipelines."
+        Pros: "Highly extensible, built-in concurrency, well-structured project architecture."
+        Cons: "Overkill for simple tasks; requires more setup to handle dynamic JS sites."
+        - Tool: BeautifulSoup
+        BestFor: "Simple HTML/XML parsing from static web pages."
+        Pros: "Very lightweight, easy to learn, great for quick scripts."
+        Cons: "Cannot interact with websites or render JavaScript."
+        - Tool: Selenium
+        BestFor: "Complex browser automation and cross-browser testing."
+        Pros: "Mature, large community, supports many languages."
+        Cons: "Generally slower than Playwright; more verbose API."
+
+    Recommended_Stack:
+        - Component: Core Scraper
+        Tool: Playwright
+        Reasoning: "Your need to scrape both static and dynamic sites makes browser automation essential. Playwright's speed and modern async API make it the best choice."
+        - Component: Data Structuring
+        Tool: Pydantic
+        Reasoning: "Ensures all scraped data is clean, validated, and type-safe before being fed to your AI model, preventing data quality issues."
+        - Component: Testing Framework
+        Tool: Pytest with pytest-playwright
+        Reasoning: "Pytest provides a simple yet powerful testing structure. The official `pytest-playwright` plugin offers fixtures and helpers that make testing browser interactions incredibly straightforward."
+
+    Stack_Synergy:
+        - "Playwright's async nature pairs perfectly with modern Python development."
+        - "Pydantic models serve as a clear, self-documenting 'schema' for your data, making the code easier to maintain."
+        - "Combining these tools with Pytest allows you to write reliable, test-driven scrapers that are less likely to break when a website's structure changes."
+
+    Actionable_Next_Steps:
+        - "Initialize a project with a virtual environment."
+        - "Install dependencies: `pip install playwright pydantic pytest pytest-playwright`"
+        - "Run `playwright install` to download browser binaries."
+        - "Create an initial Pydantic model for the data you want to scrape."
+    ```
+
+</Tab>
+</Tabs>
 <Info>
-	The key is to address the stages in order, ensuring your technical decisions
-	are driven by a clear purpose. Move through the funnel at your own pace.
+	Move through the steps sequentially so every technical decision is anchored
+	to a clear, measurable purpose.
 </Info>
 
-### Deep Research
+### Deep Research w/ Scenario
 
-With a list of potential technologies from "The How," you're ready to transition from conversation to documentation. Task the AI with conducting **deep research** to generate a formal analysis report. This deliverable should outline all viable tools and libraries, provide a comparison matrix of pros and cons for your use case, offer a clear recommendation, and discuss any integration considerations that might affect the overall architecture.
-
-### Scenario
-
-Let's see how this research phase works for a non-technical user who wants to build an `internal web scraping tool`.
+With a list of potential technologies from the "How" stage, you can now task the AI to conduct deep research and generate a formal analysis report. Let's see how this works for a user building an `internal web scraping tool`.
 
 <AccordionGroup>
-  <Accordion title="The dialogue begins with a vague idea..." icon="user">
-    **User:** "I need a way to get data from websites."
-  </Accordion>
-
-<Accordion title='The AI probes for purpose' icon='robot'>
-	**AI:** "Okay, let's explore that. What's the main goal? What will you
-	**do** with this data once you have it?"
-</Accordion>
-
-<Accordion title='The user reveals the core motivation' icon='user'>
-	**User:** "I want to feed it into another AI to train a custom model for my
-	business. The data needs to be high quality."
-</Accordion>
-
-<Accordion title='The AI defines functional needs...' icon='robot'>
-	**AI:** "Got it. That means accuracy and structure are key. What kind of
-	websites are we talking about? Simple articles, or complex pages like
-	e-commerce sites where you have to click things to see information?"
-</Accordion>
-
-<Accordion title='...and the user provides critical details' icon='user'>
-	**User:** "Both, actually. Some are simple blogs, but others are product
-	pages where prices and reviews appear dynamically."
-</Accordion>
-
-<Accordion title='The AI synthesizes and suggests a path forward' icon='robot'>
-	**AI:** "Perfect. So we need an internal tool that can scrape both static
-	and dynamic sites and output clean, structured data. Based on that, we
-	should explore technologies that can control a browser, like **Playwright**,
-	combined with a library like **Pydantic** to enforce data structure. Does
-	this sound like the right direction?"
-</Accordion>
-
-  <Accordion title="The user asks the final, informed question" icon="user">
-    **User:** "Yes, that's exactly it. What are the pros and cons of those tools you mentioned compared to others?"
-  </Accordion>
+	<Accordion title='The dialogue begins with a vague idea...' icon='user'>
+		**User:** "I need a way to get data from websites."
+	</Accordion>
+	<Accordion title='The AI probes for the "Why"' icon='robot'>
+		**AI:** "Okay, let's explore that. What's the main goal? What will you
+		**do** with this data once you have it?"
+	</Accordion>
+	<Accordion title='The user reveals the core motivation' icon='user'>
+		**User:** "I want to feed it into another AI to train a custom model for
+		my business. The data needs to be high quality."
+	</Accordion>
+	<Accordion title='The AI defines the "What"' icon='robot'>
+		**AI:** "Got it. That means accuracy and structure are key. What kind of
+		websites are we talking about? Simple articles, or complex pages where
+		you have to click to see information?"
+	</Accordion>
+	<Accordion title='The user provides critical details' icon='user'>
+		**User:** "Both, actually. Some are simple blogs, but others are product
+		pages where prices and reviews appear dynamically."
+	</Accordion>
+	<Accordion title='The AI suggests the "How"' icon='robot'>
+		**AI:** "Perfect. So we need an internal tool that can scrape both
+		static and dynamic sites and output clean, structured data. Based on
+		that, we should explore technologies that can control a browser, like
+		**Playwright**, combined with a library like **Pydantic** to enforce
+		data structure. Does this sound like the right direction?"
+	</Accordion>
+	<Accordion title='The user asks a final, informed question' icon='user'>
+		**User:** "Yes, that's exactly it. What are the pros and cons of those
+		tools you mentioned compared to others?"
+	</Accordion>
 </AccordionGroup>
 
-### In Essence...
-
-That final question is the perfect outcome of the Socratic funnel. The user started with a vague idea ("get data") and ended with a specific, well-defined query ("pros and cons of these tools"). This question now becomes the direct prompt for the AI's analysis report.
+That last question is the goal. It turns a vague idea into a clear request the AI can use to write its report.
 
 **Example AI Report:**
 
 ```yaml
 Tool Analysis Report:
-    - BeautifulSoup: Best for simple HTML parsing. Fast and lightweight.
-    - Scrapy: Excellent for large-scale, production-level scraping.
-    - Playwright: Ideal for modern, JavaScript-heavy sites.
-    - Selenium: Good for complex browser interactions but can be slower.
+    Comparison:
+        - Tool: Playwright
+          BestFor: 'Modern, JavaScript-heavy sites requiring browser interaction.'
+          Pros: 'Excellent for dynamic content, fast async execution, unified API for major browsers.'
+          Cons: 'Heavier than parsing libraries; slight learning curve for async patterns.'
+        - Tool: Scrapy
+          BestFor: 'Large-scale, production-level scraping projects and data pipelines.'
+          Pros: 'Highly extensible, built-in concurrency, well-structured project architecture.'
+          Cons: 'Overkill for simple tasks; requires more setup to handle dynamic JS sites.'
+        - Tool: BeautifulSoup
+          BestFor: 'Simple HTML/XML parsing from static web pages.'
+          Pros: 'Very lightweight, easy to learn, great for quick scripts.'
+          Cons: 'Cannot interact with websites or render JavaScript.'
+        - Tool: Selenium
+          BestFor: 'Complex browser automation and cross-browser testing.'
+          Pros: 'Mature, large community, supports many languages.'
+          Cons: 'Generally slower than Playwright; more verbose API.'
 
-Recommendation: Playwright + structured output with Pydantic.
-Reasoning: Handles modern web apps, offers fast execution, and ensures type-safe outputs for reliable data processing.
+    Recommended_Stack:
+        - Component: Core Scraper
+          Tool: Playwright
+          Reasoning: "Your need to scrape both static and dynamic sites makes browser automation essential. Playwright's speed and modern async API make it the best choice."
+        - Component: Data Structuring
+          Tool: Pydantic
+          Reasoning: 'Ensures all scraped data is clean, validated, and type-safe before being fed to your AI model, preventing data quality issues.'
+        - Component: Testing Framework
+          Tool: Pytest with pytest-playwright
+          Reasoning: 'Pytest provides a simple yet powerful testing structure. The official `pytest-playwright` plugin offers fixtures and helpers that make testing browser interactions incredibly straightforward.'
+
+    Stack_Synergy:
+        - "Playwright's async nature pairs perfectly with modern Python development."
+        - "Pydantic models serve as a clear, self-documenting 'schema' for your data, making the code easier to maintain."
+        - "Combining these tools with Pytest allows you to write reliable, test-driven scrapers that are less likely to break when a website's structure changes."
+
+    Actionable_Next_Steps:
+        - 'Initialize a project with a virtual environment.'
+        - 'Install dependencies: `pip install playwright pydantic pytest pytest-playwright`'
+        - 'Run `playwright install` to download browser binaries.'
+        - 'Create an initial Pydantic model for the data you want to scrape.'
 ```
 
 ## Build Context Library
 
-With your research complete, it's time to build the project's **context library**. This is the most critical step in the MAID framework. It’s the official, machine-readable blueprint that acts as a single source of truth for your AI collaborator.
+This is the most critical phase—creating a machine-readable **Context Package** that serves as the AI's single source of truth. It’s the detailed plan that prevents AI amnesia and scope creep. **This must be complete before any code is written.**
 
-A well-built context library prevents AI amnesia. Instead of making decisions on the fly, the AI will consistently refer to this library, ensuring the code it produces aligns perfectly with your project's rules and architecture.
+The Blueprint consists of creating three essential, living documents.
 
-<Tabs>
-  <Tab title="Document Indexing" icon="book">
-    First, you must provide the AI with the official documentation for the technologies you chose during research. If the AI doesn't have the manufacturer's instructions, it will invent its own, often leading to bugs and deprecated code.
+<Steps>
+  <Step title="Index Key Documentation">
+    First, gather comprehensive documentation for the libraries and frameworks you chose during the Research phase. If the AI doesn’t have the manufacturer's instructions, it will hallucinate, leading to bugs and deprecated code.
 
-    For our web scraper, we need the docs for `Playwright` and `Pydantic`. You have two excellent options for this:
+    <Tabs>
+      <Tab title="Deep Control" icon="code">
+        For fine-grained control, use [gpt-crawler](https://github.com/BuilderIO/gpt-crawler) to create a `docs` folder containing custom knowledge files from documentation websites.
 
-    **Deep Control (gpt-crawler)**
+        **1. Set up the crawler**
+        ```bash
+        git clone https://github.com/builderio/gpt-crawler
+        cd gpt-crawler
+        npm i
+        ```
 
-    For maximum control, use a tool like [gpt-crawler](https://github.com/BuilderIO/gpt-crawler) to crawl and index the documentation websites yourself. This creates a local, structured JSON file of the content.
+        **2. Configure the crawl target**
+        Open `config.ts` and define the starting `url`, a `match` url pattern, and a CSS `selector` for the main content.
 
-    ```bash
-    # Crawl Playwright's Python docs
-    npx gpt-crawler --url https://playwright.dev/python/docs/intro --output playwright-docs.json
+        ```typescript title="Example: Crawling Playwright Docs"
+        import { Config } from "./src/config";
 
-    # Crawl Pydantic's docs
-    npx gpt-crawler --url https://docs.pydantic.dev/latest/ --output pydantic-docs.json
+        export const defaultConfig: Config = {
+          url: "https://playwright.dev/python/docs/intro",
+          match: "https://playwright.dev/python/docs/**",
+          selector: `[role="main"]`,
+          maxPagesToCrawl: 50,
+          outputFileName: "docs/playwright-docs.json",
+        };
+        ```
+
+        **3. Run the crawler**
+        ```bash
+        npm start
+        ```
+        This command generates a JSON file in the `docs` folder, ready to be used as context.
+      </Tab>
+      <Tab title="Quick Start" icon="rocket">
+        For a faster, no-code approach, a service like [Context7](https://context7.com) (available as MCP) allows you to simply paste documentation URLs. It handles the crawling and provides a ready-to-use context package for your AI.
+      </Tab>
+    </Tabs>
+
+  </Step>
+
+  <Step title="Draft the PRD">
+    Next, translate your high-level goals into a detailed specification by creating a `PRD.md` file. Use a **long-context AI** (like [Gemini](https://aistudio.google.com/) or a [local model](https://lmstudio.ai/)) to help you draft it, asking clarifying questions to ensure no detail is missed.
+
+    <Tip>
+      The PRD is a **living document**. It will evolve as the project progresses, but it serves as the definitive guide for what to build at any given time.
+    </Tip>
+
+    Instead of a rigid template, a good PRD answers three fundamental questions. The specifics will change for every project, but the core ideas remain the same.
+
+    <AccordionGroup>
+      <Accordion title="What does it do? (The User Experience)">
+        This section focuses on the user's perspective.
+        - Who is the end-user?
+        - What specific problem does this solve for them?
+        - Describe the ideal user journey from start to finish.
+      </Accordion>
+      <Accordion title="How is it built? (The Technical Plan)">
+        This outlines the high-level technical approach without getting lost in minor details.
+        - What is the overall system architecture?
+        - What are the key data structures or models?
+        - Are there any major performance, security, or scalability considerations?
+      </Accordion>
+      <Accordion title="What does success look like? (The Definition of Done)">
+        This defines how you'll know you've succeeded.
+        - How will we verify that the core features are working correctly?
+        - What are the key metrics for success (e.g., speed, accuracy, reliability)?
+      </Accordion>
+    </AccordionGroup>
+
+  </Step>
+
+  <Step title="Establish Project Rules (CLAUDE.md)">
+    Finally, create a `CLAUDE.md` (or `PROJECT_RULES.md`) file that outlines the non-negotiable architectural decisions and coding standards. This prevents the AI from deviating from your plan.
+
+    Like the PRD, this is a **living document** that should be updated as architectural decisions are made.
+
+    For our web scraper, the rules file would look like this:
+    ```markdown
+    # Project: Internal Web Scraper
+
+    ## 1. Architecture Decisions
+    - **Core Framework**: Playwright for browser automation.
+    - **Data Structuring**: Pydantic models for all scraped data.
+    - **Application Type**: Asynchronous command-line tool.
+
+    ## 2. Non-Negotiable Rules
+    - All web scraping must respect `robots.txt` directives.
+    - Implement a 1-second delay between requests to the same domain.
+    - Use structured logging (JSON format) for all errors and warnings.
+
+    ## 3. Code Standards
+    - All functions must include type hints and docstrings.
+    - Secrets or API keys must never be hardcoded.
+    - Test-Driven Development (TDD) is preferred.
     ```
 
-    **Quick Start (Context7)**
+  </Step>
+</Steps>
 
-    For a faster, no-code approach, a service like [Context7](https://context7.com) (available as MCP) allows you to simply paste the documentation URLs. It handles the crawling and provides a ready-to-use context package for your AI.
+<Info>
+	**Your Context Package is Ready**
 
-  </Tab>
-  <Tab title="Project Rules" icon="shield">
-    Next, you create a project rules file. This is where you enforce your architectural decisions and coding standards. Think of it as the list of non-negotiable laws for your project that the AI must always obey.
+    Once complete, your project directory should contain the full AI-readable blueprint:
 
-    **For Claude Code Users:**
+    - A `docs/*` folder with knowledge files.
+    - A `PRD.md` file defining what to build.
+    - A `CLAUDE.md` file defining how to build it.
 
-    Create a `CLAUDE.md` file in your project root. This follows [Claude Code's memory management system](https://docs.anthropic.com/en/docs/claude-code/memory) and provides hierarchical project instructions that Claude automatically loads.
+</Info>
 
-    **For Other AI Tools:**
+## Implement Functionality
 
-    Create a `PROJECT_RULES.md` file with similar structured instructions for your chosen AI assistant.
-
-    This document prevents the AI from deviating from your plan. It should be specific and unambiguous, using structured markdown with clear bullet points.
-
-  </Tab>
-</Tabs>
-
-### Scenario
-
-Continuing with our web scraping tool, we'll create a `CLAUDE.md` file that reflects our findings from the Research phase.
-
-**`CLAUDE.md`:**
-
-```markdown
-# Project: Internal Web Scraper
-
-## 1. Architecture Decisions
-
-- **Core Framework**: Playwright for browser automation.
-- **Data Structuring**: Pydantic models for all scraped data.
-- **Application Type**: Asynchronous command-line tool.
-
-## 2. Non-Negotiable Rules
-
-- All web scraping must respect `robots.txt` directives.
-- Implement a 1-second delay between requests to the same domain.
-- Use structured logging (JSON format) for all errors and warnings.
-
-## 3. Code Standards
-
-- All functions must include type hints.
-- Public functions require a docstring explaining their purpose, arguments, and return value.
-- Secrets or API keys must never be hardcoded.
-```
-
-<Tip>
-	Your project rules file should be a living document. As you make new
-	architectural decisions during the project's lifecycle, update them here
-	first.
-</Tip>
-
-With the `Playwright` and `Pydantic` documentation indexed and the project rules defined in `CLAUDE.md`, our Context Library is complete. We now have a comprehensive blueprint ready to hand off for implementation, ensuring the AI builds exactly what we planned.
+## Debug Issues

@@ -1,0 +1,14 @@
+# MDX files with complex React components may not format perfectly
+# Remove this line if you want to try formatting MDX files
+# *.mdx
+
+# Auto-generated files
+node_modules/
+bun.lock
+yarn.lock
+dist/
+build/
+.next/
+.cache/
+.vscode/
+.idea/
