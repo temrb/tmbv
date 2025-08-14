@@ -852,75 +852,75 @@ This process relies on the blueprint you've already built. The AI doesn't need t
 Let's imagine our web scraper runs, but we notice that no data is being saved for the 'TechBlog' target.
 
 <AccordionGroup>
-  <Accordion title="The user identifies the symptom and finds the log" icon="user">
-    **User:** "The scraper completed, but the `techblog_posts.jsonl` file is empty. I've checked the logs and found a recurring `ValidationError`."
+    <Accordion title="The user identifies the symptom and finds the log" icon="user">
+        **User:** "The scraper completed, but the `techblog_posts.jsonl` file is empty. I've checked the logs and found a recurring `ValidationError`."
 
-    **Attached `logs/app.log`:**
-    ```json
-    {
-        "level": "ERROR",
-        "message": "Pydantic validation failed for TechBlog",
-        "timestamp": "2025-08-14T10:00:00Z",
-        "extra": {
-            "url": "https://example-tech-blog.com/posts/latest",
-            "error": "1 validation error for BlogPost\npublication_date\n  Input should be a valid datetime, invalid character in year (type=datetime_invalid_character; position=year)"
+        **Attached `logs/app.log`:**
+        ```json
+        {
+            "level": "ERROR",
+            "message": "Pydantic validation failed for TechBlog",
+            "timestamp": "2025-08-14T10:00:00Z",
+            "extra": {
+                "url": "https://example-tech-blog.com/posts/latest",
+                "error": "1 validation error for BlogPost\npublication_date\n  Input should be a valid datetime, invalid character in year (type=datetime_invalid_character; position=year)"
+            }
         }
-    }
-    ```
+        ```
 
-  </Accordion>
+    </Accordion>
 
-<Accordion title='The user provides targeted context for the AI' icon='user'>
-	**User:** "It looks like there's a Pydantic validation error related to `publication_date` when scraping the 'TechBlog' target.
+    <Accordion title='The user provides targeted context for the AI' icon='user'>
+        **User:** "It looks like there's a Pydantic validation error related to `publication_date` when scraping the 'TechBlog' target.
 
-    Here are the relevant files:
-    - `src/models/blog.py` (where `BlogPost` is defined)
-    - `src/scrapers/blog_scraper.py` (the code that extracts the date)
+        Here are the relevant files:
+        - `src/models/blog.py` (where `BlogPost` is defined)
+        - `src/scrapers/blog_scraper.py` (the code that extracts the date)
 
-    According to section 3.2 of our `PRD.md`, the `publication_date` field must be a `datetime` object. Please review the scraper logic and the model to find the mismatch and fix it."
+        According to section 3.2 of our `PRD.md`, the `publication_date` field must be a `datetime` object. Please review the scraper logic and the model to find the mismatch and fix it."
 
-</Accordion>
+    </Accordion>
 
-<Accordion title='The AI cross-references the files and the PRD to find the root cause' icon='robot'>
-	**AI:** "Understood. I have analyzed the provided context.
+    <Accordion title='The AI cross-references the files and the PRD to find the root cause' icon='robot'>
+        **AI:** "Understood. I have analyzed the provided context.
 
-    - **Diagnosis:** The error log confirms the `publication_date` field is receiving a string that cannot be parsed directly into a `datetime` object. The `blog_scraper.py` is likely extracting a human-readable date format (e.g., "August 14, 2025") that Pydantic doesn't recognize by default.
-    - **Solution:** I will add a custom validator to the `BlogPost` model in `src/models/blog.py` to parse this specific date format before validation occurs. This keeps the scraper clean and centralizes the validation logic within the model, adhering to our schema-first principle."
+        - **Diagnosis:** The error log confirms the `publication_date` field is receiving a string that cannot be parsed directly into a `datetime` object. The `blog_scraper.py` is likely extracting a human-readable date format (e.g., "August 14, 2025") that Pydantic doesn't recognize by default.
+        - **Solution:** I will add a custom validator to the `BlogPost` model in `src/models/blog.py` to parse this specific date format before validation occurs. This keeps the scraper clean and centralizes the validation logic within the model, adhering to our schema-first principle."
 
-</Accordion>
+    </Accordion>
 
-<Accordion title='The AI provides the corrected code' icon='code'>
-    **AI:** "Here is the updated `src/models/blog.py` file with the fix:"
+    <Accordion title='The AI provides the corrected code' icon='code'>
+        **AI:** "Here is the updated `src/models/blog.py` file with the fix:"
 
-    ```python title="src/models/blog.py"
-    from pydantic import BaseModel, HttpUrl, field_validator
-    from datetime import datetime
+        ```python title="src/models/blog.py"
+        from pydantic import BaseModel, HttpUrl, field_validator
+        from datetime import datetime
 
-    class BlogPost(BaseModel):
-        title: str
-        author: str
-        publication_date: datetime
-        url: HttpUrl
-        content_length: int
+        class BlogPost(BaseModel):
+            title: str
+            author: str
+            publication_date: datetime
+            url: HttpUrl
+            content_length: int
 
-        @field_validator('publication_date', mode='before')
-        @classmethod
-        def parse_publication_date(cls, value: str) -> datetime:
-            """
-            Parses a string like 'August 14, 2025' into a datetime object.
-            """
-            if isinstance(value, str):
-                try:
-                    # Attempt to parse the expected string format
-                    return datetime.strptime(value, '%B %d, %Y')
-                except ValueError:
-                    raise ValueError(f"Invalid date format: {value}")
-            return value
+            @field_validator('publication_date', mode='before')
+            @classmethod
+            def parse_publication_date(cls, value: str) -> datetime:
+                """
+                Parses a string like 'August 14, 2025' into a datetime object.
+                """
+                if isinstance(value, str):
+                    try:
+                        # Attempt to parse the expected string format
+                        return datetime.strptime(value, '%B %d, %Y')
+                    except ValueError:
+                        raise ValueError(f"Invalid date format: {value}")
+                return value
 
-    ```
-    **Explanation:** The `@field_validator` decorator intercepts the incoming `publication_date` string. It uses `datetime.strptime` to parse the specific format into a valid `datetime` object before Pydantic performs its own validation. This resolves the error while keeping the data model robust."
+        ```
+        **Explanation:** The `@field_validator` decorator intercepts the incoming `publication_date` string. It uses `datetime.strptime` to parse the specific format into a valid `datetime` object before Pydantic performs its own validation. This resolves the error while keeping the data model robust."
 
-</Accordion>
+    </Accordion>
 
 </AccordionGroup>
 
