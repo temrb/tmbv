@@ -18,8 +18,9 @@ date: 2025-08-13
 			fontFamily: 'Comic Sans MS, cursive',
 		}}
 	>
-		vibe coding ??
-	</span>
+		"vibe coding"
+	</span>{' '}
+	?
 </h2>
 
 <Frame caption='https://www.reddit.com/r/ProgrammerHumor/comments/1jcjrzf/vibecoding'>
@@ -689,9 +690,12 @@ Depending on your project's scale, you can choose one of two primary strategies:
 
 Regardless of the strategy, the core loop remains the same:
 
-- **Delegate** - Fully or partially hand off PRD to AI.
-- **Generate & Review** - The AI generates the code. You act as the quality assurance engineer, verifying that the output matches the blueprint.
-- **Iterate** - Once the foundation is built, you continue the loop by delegating new features or refinements.
+```mermaid
+graph TD
+    A[Delegate PRD to AI] --> B{Generate & Review Code};
+    B --> C[Iterate on Feedback];
+    C --> A;
+```
 
 ### Scenario w/ Holistic Generation in Action
 
