@@ -21,7 +21,6 @@
 			}
 		]
 	},
-
 	"contextual": {
 		"options": ["perplexity", "claude", "copy", "view"]
 	},
