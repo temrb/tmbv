@@ -58,6 +58,20 @@ Instead of building on a vibe, let's build from a blueprint. The following steps
 	</Card>
 </CardGroup>
 
+This approach of delegating tasks to specialized AIs isn't just a theoretical framework; it reflects a clear trend in how professional developers build today.
+
+The [2025 Stack Overflow Developer Survey](https://survey.stackoverflow.co/2025/) shows that while general-purpose models like **OpenAI GPT** serve as the ecosystem's starting point, developers strategically branch out to other models for specific jobs. They use tools like **Gemini** for complex reasoning and planning, and models like **Claude Sonnet** for code implementation.
+
+<Frame caption='https://survey.stackoverflow.co/2025/technology#worked-with-vs-want-to-work-with-ai-models-worked-want-prof'>
+	<img
+		src='https://ik.imagekit.io/pqnkhqkwi/tmbv/multi-ai%20iterative%20development/Screenshot%202025-08-11%20083157.png?updatedAt=1755063956698'
+		aria-label='LLMs Stackoverflow'
+		alt='LLMs Stackoverflow'
+	/>
+</Frame>
+
+This is the core principle of the MAID framework in action: using the right tool for the right task.
+
 ## Conversational Research
 
 The first and most critical step is **dialogue**. This isn't a casual chat, but a structured conversation that prevents "vibe coding" by turning a high-level vision into a concrete technical plan.
@@ -68,132 +82,133 @@ The first and most critical step is **dialogue**. This isn't a casual chat, but 
 	same: clarity.
 </Note>
 
-### Define Your Project with a 3-Step Dialogue
+### Define Your Project through Dialogue
 
 Use a conversational AI like [ChatGPT](https://chat.openai.com/) as a partner to progress through the funnel, moving from the abstract to the concrete.
 
 <Tabs>
-<Tab title='Steps' icon='layer-group'>
-<Steps>
-  <Step title='The Why (High-Level Vision)'>
-    Focus entirely on the human element. This stage is about defining the user's pain point and the ultimate goal, using simple, non-technical language.
+    <Tab title='Steps' icon='layer-group'>
+    <Steps>
+    <Step title='The Why (High-Level Vision)'>
+        Focus entirely on the human element. This stage is about defining the user's pain point and the ultimate goal, using simple, non-technical language.
 
-    **Key Questions to Explore:**
-    - Who is this for?
-    - Is this an internal tool or a public-facing product?
-    - What specific problem does this solve for them?
-    - What does success look like from their perspective?
+        **Key Questions to Explore:**
+        - Who is this for?
+        - Is this an internal tool or a public-facing product?
+        - What specific problem does this solve for them?
+        - What does success look like from their perspective?
 
-  </Step>
-  <Step title='The What (Functional Requirements)'>
-    Translate the vision into tangible features and behaviors. You're defining what the system must *do* without yet deciding on the technology.
+    </Step>
+    <Step title='The What (Functional Requirements)'>
+        Translate the vision into tangible features and behaviors. You're defining what the system must *do* without yet deciding on the technology.
 
-    **Key Questions to Explore:**
-    - What are the core features needed for an MVP?
-    - What kind of data will the system handle?
-    - Are there critical needs like speed, security, or scale?
+        **Key Questions to Explore:**
+        - What are the core features needed for an MVP?
+        - What kind of data will the system handle?
+        - Are there critical needs like speed, security, or scale?
 
-  </Step>
-  <Step title='The How (Technical Exploration)'>
-    Once the "what" is clear, you can explore the "how." This is where a non-technical person can ask the AI for suggestions, and a technical person can validate their ideas.
+    </Step>
+    <Step title='The How (Technical Exploration)'>
+        Once the "what" is clear, you can explore the "how." This is where a non-technical person can ask the AI for suggestions, and a technical person can validate their ideas.
 
-    **Key Questions to Explore:**
-    - Based on our needs, what technologies are a good fit?
-    - What are the trade-offs between different frameworks?
-    - What would a basic system architecture look like?
+        **Key Questions to Explore:**
+        - Based on our needs, what technologies are a good fit?
+        - What are the trade-offs between different frameworks?
+        - What would a basic system architecture look like?
 
-  </Step>
-</Steps>
-</Tab>
-<Tab title='System Prompt' icon='comment-arrow-up'>
-```markdown
-**Your Role:** You are an **AI Project Strategist**. Your purpose is to act as a technical consultant who helps users flesh out their software project ideas through a natural, guided conversation. You will actively use your knowledge to provide insights, suggest technologies, and collaboratively shape the project's technical direction.
+    </Step>
+    </Steps>
+    </Tab>
+    <Tab title='System Prompt' icon='comment-arrow-up'>
+    ```markdown
+    **Your Role:** You are an **AI Project Strategist**. Your purpose is to act as a technical consultant who helps users flesh out their software project ideas through a natural, guided conversation. You will actively use your knowledge to provide insights, suggest technologies, and collaboratively shape the project's technical direction.
 
-**Your Core Objective:** To transform a user's vague initial idea into a well-defined project plan, complete with a recommended technical stack. This is achieved through a seamless, conversational research process, not a rigid Q&A.
+    **Your Core Objective:** To transform a user's vague initial idea into a well-defined project plan, complete with a recommended technical stack. This is achieved through a seamless, conversational research process, not a rigid Q&A.
 
-**Your Conversational Framework:**
+    **Your Conversational Framework:**
 
-Your entire conversation should follow a natural flow from **Why -> What -> How**. You will conduct research and provide suggestions _within_ this flow.
+    Your entire conversation should follow a natural flow from **Why -> What -> How**. You will conduct research and provide suggestions _within_ this flow.
 
-**Guiding Principles:**
+    **Guiding Principles:**
 
-- **Be a Consultant, Not a Form:** Your dialogue should flow naturally. Seamlessly transition between stages.
-- **Research is Your Superpower:** Don't announce that you are "researching." Simply present the results of your knowledge search as expert suggestions within the conversation.
-- **Validate Continuously:** Always check if your understanding and suggestions align with the user's vision (e.g., "Does this sound right to you?").
-- **Stay Focused:** Gently steer the conversation back to the project if the user goes off-topic. Your goal is always to define the project.
+    - **Be a Consultant, Not a Form:** Your dialogue should flow naturally. Seamlessly transition between stages.
+    - **Research is Your Superpower:** Don't announce that you are "researching." Simply present the results of your knowledge search as expert suggestions within the conversation.
+    - **Validate Continuously:** Always check if your understanding and suggestions align with the user's vision (e.g., "Does this sound right to you?").
+    - **Stay Focused:** Gently steer the conversation back to the project if the user goes off-topic. Your goal is always to define the project.
 
-**1. Start with the "Why" (The Vision)**
+    **1. Start with the "Why" (The Vision)**
 
-- **Your Task:** First, understand the user's core motivation and goals. Your tone should be curious and collaborative.
-- **Example Probes:**
-    - "I can help with that. To get started, could you tell me a bit about the main goal? What will you do with the data once you have it?"
-    - "Who is the end-user for this tool?"
-    - "What problem does this solve for them?"
+    - **Your Task:** First, understand the user's core motivation and goals. Your tone should be curious and collaborative.
+    - **Example Probes:**
+        - "I can help with that. To get started, could you tell me a bit about the main goal? What will you do with the data once you have it?"
+        - "Who is the end-user for this tool?"
+        - "What problem does this solve for them?"
 
-**2. Define the "What" (The Functional Needs)**
+    **2. Define the "What" (The Functional Needs)**
 
-- **Your Task:** Once the purpose is clear, guide the user to define the specific requirements. Your questions should build directly on their "Why."
-- **Example Probes:**
-    - "Got it. So accuracy and structure are key for your AI model. That helps a lot. What kind of websites are we talking about? Simple articles, or complex pages with dynamic content that you need to interact with?"
-    - "Are there any other critical needs, like the speed of data collection or the scale of the operation?"
+    - **Your Task:** Once the purpose is clear, guide the user to define the specific requirements. Your questions should build directly on their "Why."
+    - **Example Probes:**
+        - "Got it. So accuracy and structure are key for your AI model. That helps a lot. What kind of websites are we talking about? Simple articles, or complex pages with dynamic content that you need to interact with?"
+        - "Are there any other critical needs, like the speed of data collection or the scale of the operation?"
 
-**3. Research and Propose the "How" (The Technical Solution)**
+    **3. Research and Propose the "How" (The Technical Solution)**
 
-- **Your Task:** This is where you actively synthesize the user's needs and use your internal knowledge (perform research) to propose a technical path. Present your findings as collaborative suggestions, not just facts.
-- **Example Synthesis & Proposal:**
-    - "Perfect, that's a crucial detail. Since you need to handle both static and dynamic sites, my research suggests we need a tool that can control a browser. Based on that, I'd recommend we explore technologies like **Playwright** for the automation, combined with a library like **Pydantic** to enforce that clean data structure you need. Does this sound like the right direction?"
+    - **Your Task:** This is where you actively synthesize the user's needs and use your internal knowledge (perform research) to propose a technical path. Present your findings as collaborative suggestions, not just facts.
+    - **Example Synthesis & Proposal:**
+        - "Perfect, that's a crucial detail. Since you need to handle both static and dynamic sites, my research suggests we need a tool that can control a browser. Based on that, I'd recommend we explore technologies like **Playwright** for the automation, combined with a library like **Pydantic** to enforce that clean data structure you need. Does this sound like the right direction?"
 
-**4. Finalize with a Detailed Summary**
+    **4. Finalize with a Detailed Summary**
 
-- **Your Task:** The conversation should naturally lead the user to ask for more detail. When they ask for a comparison or a more formal breakdown (e.g., "What are the pros and cons of those tools?"), your final step is to provide a concise, structured summary of your recommendation.
-- **Example Final Output (in response to the user's final question):**
+    - **Your Task:** The conversation should naturally lead the user to ask for more detail. When they ask for a comparison or a more formal breakdown (e.g., "What are the pros and cons of those tools?"), your final step is to provide a concise, structured summary of your recommendation.
+    - **Example Final Output (in response to the user's final question):**
 
-    "Excellent question. Here is a quick breakdown of the options:"
+        "Excellent question. Here is a quick breakdown of the options:"
 
-    ```yaml
-    Tool Analysis Report:
-    Comparison:
-        - Tool: Playwright
-        BestFor: "Modern, JavaScript-heavy sites requiring browser interaction."
-        Pros: "Excellent for dynamic content, fast async execution, unified API for major browsers."
-        Cons: "Heavier than parsing libraries; slight learning curve for async patterns."
-        - Tool: Scrapy
-        BestFor: "Large-scale, production-level scraping projects and data pipelines."
-        Pros: "Highly extensible, built-in concurrency, well-structured project architecture."
-        Cons: "Overkill for simple tasks; requires more setup to handle dynamic JS sites."
-        - Tool: BeautifulSoup
-        BestFor: "Simple HTML/XML parsing from static web pages."
-        Pros: "Very lightweight, easy to learn, great for quick scripts."
-        Cons: "Cannot interact with websites or render JavaScript."
-        - Tool: Selenium
-        BestFor: "Complex browser automation and cross-browser testing."
-        Pros: "Mature, large community, supports many languages."
-        Cons: "Generally slower than Playwright; more verbose API."
+        ```yaml
+        Tool Analysis Report:
+        Comparison:
+            - Tool: Playwright
+            BestFor: "Modern, JavaScript-heavy sites requiring browser interaction."
+            Pros: "Excellent for dynamic content, fast async execution, unified API for major browsers."
+            Cons: "Heavier than parsing libraries; slight learning curve for async patterns."
+            - Tool: Scrapy
+            BestFor: "Large-scale, production-level scraping projects and data pipelines."
+            Pros: "Highly extensible, built-in concurrency, well-structured project architecture."
+            Cons: "Overkill for simple tasks; requires more setup to handle dynamic JS sites."
+            - Tool: BeautifulSoup
+            BestFor: "Simple HTML/XML parsing from static web pages."
+            Pros: "Very lightweight, easy to learn, great for quick scripts."
+            Cons: "Cannot interact with websites or render JavaScript."
+            - Tool: Selenium
+            BestFor: "Complex browser automation and cross-browser testing."
+            Pros: "Mature, large community, supports many languages."
+            Cons: "Generally slower than Playwright; more verbose API."
 
-    Recommended_Stack:
-        - Component: Core Scraper
-        Tool: Playwright
-        Reasoning: "Your need to scrape both static and dynamic sites makes browser automation essential. Playwright's speed and modern async API make it the best choice."
-        - Component: Data Structuring
-        Tool: Pydantic
-        Reasoning: "Ensures all scraped data is clean, validated, and type-safe before being fed to your AI model, preventing data quality issues."
-        - Component: Testing Framework
-        Tool: Pytest with pytest-playwright
-        Reasoning: "Pytest provides a simple yet powerful testing structure. The official `pytest-playwright` plugin offers fixtures and helpers that make testing browser interactions incredibly straightforward."
+        Recommended_Stack:
+            - Component: Core Scraper
+            Tool: Playwright
+            Reasoning: "Your need to scrape both static and dynamic sites makes browser automation essential. Playwright's speed and modern async API make it the best choice."
+            - Component: Data Structuring
+            Tool: Pydantic
+            Reasoning: "Ensures all scraped data is clean, validated, and type-safe before being fed to your AI model, preventing data quality issues."
+            - Component: Testing Framework
+            Tool: Pytest with pytest-playwright
+            Reasoning: "Pytest provides a simple yet powerful testing structure. The official `pytest-playwright` plugin offers fixtures and helpers that make testing browser interactions incredibly straightforward."
 
-    Stack_Synergy:
-        - "Playwright's async nature pairs perfectly with modern Python development."
-        - "Pydantic models serve as a clear, self-documenting 'schema' for your data, making the code easier to maintain."
-        - "Combining these tools with Pytest allows you to write reliable, test-driven scrapers that are less likely to break when a website's structure changes."
+        Stack_Synergy:
+            - "Playwright's async nature pairs perfectly with modern Python development."
+            - "Pydantic models serve as a clear, self-documenting 'schema' for your data, making the code easier to maintain."
+            - "Combining these tools with Pytest allows you to write reliable, test-driven scrapers that are less likely to break when a website's structure changes."
 
-    Actionable_Next_Steps:
-        - "Initialize a project with a virtual environment."
-        - "Install dependencies: `pip install playwright pydantic pytest pytest-playwright`"
-        - "Run `playwright install` to download browser binaries."
-        - "Create an initial Pydantic model for the data you want to scrape."
-    ```
+        Actionable_Next_Steps:
+            - "Initialize a project with a virtual environment."
+            - "Install dependencies: `pip install playwright pydantic pytest pytest-playwright`"
+            - "Run `playwright install` to download browser binaries."
+            - "Create an initial Pydantic model for the data you want to scrape."
+        ```
 
-</Tab>
+    </Tab>
+
 </Tabs>
 <Info>
 	Move through the steps sequentially so every technical decision is anchored
@@ -240,169 +255,395 @@ With a list of potential technologies from the "How" stage, you can now task the
 
 That last question is the goal. It turns a vague idea into a clear request the AI can use to write its report.
 
-**Example AI Report:**
-
-```yaml
-Tool Analysis Report:
-    Comparison:
-        - Tool: Playwright
-          BestFor: 'Modern, JavaScript-heavy sites requiring browser interaction.'
-          Pros: 'Excellent for dynamic content, fast async execution, unified API for major browsers.'
-          Cons: 'Heavier than parsing libraries; slight learning curve for async patterns.'
-        - Tool: Scrapy
-          BestFor: 'Large-scale, production-level scraping projects and data pipelines.'
-          Pros: 'Highly extensible, built-in concurrency, well-structured project architecture.'
-          Cons: 'Overkill for simple tasks; requires more setup to handle dynamic JS sites.'
-        - Tool: BeautifulSoup
-          BestFor: 'Simple HTML/XML parsing from static web pages.'
-          Pros: 'Very lightweight, easy to learn, great for quick scripts.'
-          Cons: 'Cannot interact with websites or render JavaScript.'
-        - Tool: Selenium
-          BestFor: 'Complex browser automation and cross-browser testing.'
-          Pros: 'Mature, large community, supports many languages.'
-          Cons: 'Generally slower than Playwright; more verbose API.'
-
-    Recommended_Stack:
-        - Component: Core Scraper
-          Tool: Playwright
-          Reasoning: "Your need to scrape both static and dynamic sites makes browser automation essential. Playwright's speed and modern async API make it the best choice."
-        - Component: Data Structuring
-          Tool: Pydantic
-          Reasoning: 'Ensures all scraped data is clean, validated, and type-safe before being fed to your AI model, preventing data quality issues.'
-        - Component: Testing Framework
-          Tool: Pytest with pytest-playwright
-          Reasoning: 'Pytest provides a simple yet powerful testing structure. The official `pytest-playwright` plugin offers fixtures and helpers that make testing browser interactions incredibly straightforward.'
-
-    Stack_Synergy:
-        - "Playwright's async nature pairs perfectly with modern Python development."
-        - "Pydantic models serve as a clear, self-documenting 'schema' for your data, making the code easier to maintain."
-        - "Combining these tools with Pytest allows you to write reliable, test-driven scrapers that are less likely to break when a website's structure changes."
-
-    Actionable_Next_Steps:
-        - 'Initialize a project with a virtual environment.'
-        - 'Install dependencies: `pip install playwright pydantic pytest pytest-playwright`'
-        - 'Run `playwright install` to download browser binaries.'
-        - 'Create an initial Pydantic model for the data you want to scrape.'
-```
-
 ## Build Context Library
 
-This is the most critical phase—creating a machine-readable **Context Package** that serves as the AI's single source of truth. It’s the detailed plan that prevents AI amnesia and scope creep. **This must be complete before any code is written.**
-
-The Blueprint consists of creating three essential, living documents.
+This is the most critical phase—creating a machine-readable _context package_ that serves as the AI's single source of truth. It’s the detailed plan that prevents AI amnesia and scope creep.
 
 <Steps>
-  <Step title="Index Key Documentation">
+    <Step title="Index Key Documentation">
     First, gather comprehensive documentation for the libraries and frameworks you chose during the Research phase. If the AI doesn’t have the manufacturer's instructions, it will hallucinate, leading to bugs and deprecated code.
 
     <Tabs>
-      <Tab title="Deep Control" icon="code">
-        For fine-grained control, use [gpt-crawler](https://github.com/BuilderIO/gpt-crawler) to create a `docs` folder containing custom knowledge files from documentation websites.
+        <Tab title="Deep Control" icon="code">
+            For fine-grained control, use [gpt-crawler](https://github.com/BuilderIO/gpt-crawler) to create a `docs` folder containing custom knowledge files from documentation websites.
 
-        **1. Set up the crawler**
-        ```bash
-        git clone https://github.com/builderio/gpt-crawler
-        cd gpt-crawler
-        npm i
-        ```
+            1) **Set up the crawler**
 
-        **2. Configure the crawl target**
-        Open `config.ts` and define the starting `url`, a `match` url pattern, and a CSS `selector` for the main content.
+            ```bash
+            git clone https://github.com/builderio/gpt-crawler
+            cd gpt-crawler
+            npm i
+            ```
 
-        ```typescript title="Example: Crawling Playwright Docs"
-        import { Config } from "./src/config";
+            2) **Configure the crawl target**
 
-        export const defaultConfig: Config = {
-          url: "https://playwright.dev/python/docs/intro",
-          match: "https://playwright.dev/python/docs/**",
-          selector: `[role="main"]`,
-          maxPagesToCrawl: 50,
-          outputFileName: "docs/playwright-docs.json",
-        };
-        ```
+            Open `config.ts` and define the starting `url`, a `match` url pattern, and a CSS `selector` for the main content.
 
-        **3. Run the crawler**
-        ```bash
-        npm start
-        ```
-        This command generates a JSON file in the `docs` folder, ready to be used as context.
-      </Tab>
-      <Tab title="Quick Start" icon="rocket">
-        For a faster, no-code approach, a service like [Context7](https://context7.com) (available as MCP) allows you to simply paste documentation URLs. It handles the crawling and provides a ready-to-use context package for your AI.
-      </Tab>
+            ```typescript title="Example: Crawling Playwright Docs"
+            import { Config } from "./src/config";
+
+            export const defaultConfig: Config = {
+                url: "https://playwright.dev/python/docs/intro",
+                match: "https://playwright.dev/python/docs/**",
+                selector: `[role="main"]`,
+                maxPagesToCrawl: 50,
+                outputFileName: "docs/playwright-docs.json",
+            };
+            ```
+
+            3) **Run the crawler**
+
+            ```bash
+            npm start
+            ```
+            This command generates a JSON file in the `docs` folder, ready to be used as context.
+        </Tab>
+        <Tab title="Quick Start" icon="rocket">
+            For a faster, no-code approach, a service like [Context7](https://context7.com) (available as MCP) allows you to simply paste documentation URLs. It handles the crawling and provides a ready-to-use context package for your AI.
+        </Tab>
     </Tabs>
 
-  </Step>
+    </Step>
 
-  <Step title="Draft the PRD">
-    Next, translate your high-level goals into a detailed specification by creating a `PRD.md` file. Use a **long-context AI** (like [Gemini](https://aistudio.google.com/) or a [local model](https://lmstudio.ai/)) to help you draft it, asking clarifying questions to ensure no detail is missed.
+    <Step title="Draft the Product Requirements Document">
+        Next, translate your high-level goals into a detailed specification by creating a `PRD.md` file. Use a **long-context AI** (like [Gemini](https://aistudio.google.com/) or a [local model](https://lmstudio.ai/)) to help you draft it, asking clarifying questions to ensure no detail is missed.
+        <Tip>
+        The PRD is a **living document**. It will evolve as the project progresses, but it serves as the definitive guide for what to build at any given time.
+        </Tip>
 
-    <Tip>
-      The PRD is a **living document**. It will evolve as the project progresses, but it serves as the definitive guide for what to build at any given time.
-    </Tip>
+        Instead of a rigid template, a good PRD answers three fundamental questions. The specifics will change for every project, but the core ideas remain the same.
 
-    Instead of a rigid template, a good PRD answers three fundamental questions. The specifics will change for every project, but the core ideas remain the same.
+        <AccordionGroup>
+            <Accordion title="What does it do? (The User Experience)">
+                This section focuses on the user's perspective.
+                - Who is the end-user?
+                - What specific problem does this solve for them?
+                - Describe the ideal user journey from start to finish.
+            </Accordion>
+            <Accordion title="How is it built? (The Technical Plan)">
+                This outlines the high-level technical approach without getting lost in minor details.
+                - What is the overall system architecture?
+                - What are the key data structures or models?
+                - Are there any major performance, security, or scalability considerations?
+            </Accordion>
+            <Accordion title="What does success look like? (The Definition of Done)">
+                This defines how you'll know you've succeeded.
+                - How will we verify that the core features are working correctly?
+                - What are the key metrics for success (e.g., speed, accuracy, reliability)?
+            </Accordion>
+        </AccordionGroup>
 
-    <AccordionGroup>
-      <Accordion title="What does it do? (The User Experience)">
-        This section focuses on the user's perspective.
-        - Who is the end-user?
-        - What specific problem does this solve for them?
-        - Describe the ideal user journey from start to finish.
-      </Accordion>
-      <Accordion title="How is it built? (The Technical Plan)">
-        This outlines the high-level technical approach without getting lost in minor details.
-        - What is the overall system architecture?
-        - What are the key data structures or models?
-        - Are there any major performance, security, or scalability considerations?
-      </Accordion>
-      <Accordion title="What does success look like? (The Definition of Done)">
-        This defines how you'll know you've succeeded.
-        - How will we verify that the core features are working correctly?
-        - What are the key metrics for success (e.g., speed, accuracy, reliability)?
-      </Accordion>
-    </AccordionGroup>
+        <Expandable title="example">
+                ```markdown
+                # **Product Requirements Document: Internal AI Training Data Scraper**
 
-  </Step>
+                ## **1. Vision and Strategy**
 
-  <Step title="Establish Project Rules (CLAUDE.md)">
-    Finally, create a `CLAUDE.md` (or `PROJECT_RULES.md`) file that outlines the non-negotiable architectural decisions and coding standards. This prevents the AI from deviating from your plan.
+                ### **1.1. Project Objective**
 
-    Like the PRD, this is a **living document** that should be updated as architectural decisions are made.
+                To build a reliable, configuration-driven internal tool that automates the scraping of web data from both static and dynamic websites. The system's primary goal is to produce high-quality, structured, and validated data suitable for training AI models.
 
-    For our web scraper, the rules file would look like this:
-    ```markdown
-    # Project: Internal Web Scraper
+                ### **1.2. Problem Statement & User Persona**
 
-    ## 1. Architecture Decisions
-    - **Core Framework**: Playwright for browser automation.
-    - **Data Structuring**: Pydantic models for all scraped data.
-    - **Application Type**: Asynchronous command-line tool.
+                -   **Problem:** Gathering high-quality training data is a manual, slow, and error-prone process. Data scientists and ML engineers spend an inordinate amount of time cleaning inconsistent data scraped with ad-hoc scripts. Existing tools often fail to handle modern JavaScript-driven websites or enforce the strict data schemas required for model training, leading to "garbage in, garbage out."
+                -   **Primary User Persona: "The ML Engineer"**
+                    -   **Who:** A data scientist or machine learning engineer responsible for building and training predictive models.
+                    -   **Needs:** A dependable, automated way to source clean, structured data from various websites. They require the output to be 100% schema-compliant.
+                    -   **Pain Points:** Models failing or producing poor results due to inconsistent or malformed input data. Wasting days on data cleaning instead of model development.
 
-    ## 2. Non-Negotiable Rules
-    - All web scraping must respect `robots.txt` directives.
-    - Implement a 1-second delay between requests to the same domain.
-    - Use structured logging (JSON format) for all errors and warnings.
+                ### **1.3. Core Strategy: The Two-Phase Scraping Workflow**
 
-    ## 3. Code Standards
-    - All functions must include type hints and docstrings.
-    - Secrets or API keys must never be hardcoded.
-    - Test-Driven Development (TDD) is preferred.
-    ```
+                The system is architected around a simple yet powerful two-phase workflow for each scraping task, ensuring clear separation of concerns for easy debugging.
 
-  </Step>
+                1.  **Phase 1: Scrape & Capture (Browser Automation):** An asynchronous worker navigates to a target URL using a headless browser, interacts with the page if necessary, and captures the required raw content.
+                2.  **Phase 2: Validate & Store (Data Structuring):** The raw, captured data is immediately passed into a corresponding Pydantic model. If the data passes validation, it is stored in a structured format (JSONL). If it fails, a detailed error is logged, and the raw content is saved for manual inspection.
+
+                ### **1.4. Mandatory Principles**
+
+                -   **Schema-First with Pydantic:** All data output **must** be validated through a Pydantic model before being saved. There are no exceptions. This is the core principle ensuring data quality.
+                -   **Test-Driven Development (TDD):** All core services and scraper logic must be developed with corresponding unit and integration tests using `Pytest`.
+                -   **Configuration-Driven:** The entire scraping process (targets, data models, selectors) is defined in external YAML files. No URLs or application logic should be hardcoded in the source.
+                -   **Asynchronous Core:** The application **must** be built on Python's `asyncio` to leverage the performance benefits of Playwright and run multiple scraping tasks concurrently.
+                -   **Structured Logging:** All logs must be in JSON format to facilitate machine parsing and analysis, providing clear context for both successful runs and failures.
+
+                ---
+
+                ## **2. System Architecture**
+
+                ### **2.1. Project Directory Structure**
+
+                -   `src/`: Main application source code.
+                    -   `models/`: Contains all Pydantic model definitions.
+                    -   `scrapers/`: Logic for individual scraper types.
+                    -   `services/`: Core components like logging, configuration, and storage.
+                    -   `main.py`: The main orchestrator script.
+                -   `tests/`: All unit and integration tests.
+                -   `config/`: All user-facing configuration files.
+                    -   `targets.yaml`: Defines the websites and data to be scraped.
+                -   `output/`: The destination for scraped data and error logs.
+                    -   `data/`: Stores the successful, validated JSONL output files.
+                    -   `errors/`: Stores raw HTML of pages that failed validation.
+                -   `run.py`: The command-line interface (CLI) entry point.
+
+                ### **2.2. Master Orchestrator Lifecycle (`main.py`)**
+
+                The orchestrator is the central script that manages the entire process.
+
+                1.  **Initialization:**
+                    -   Loads the scraping configurations from `config/targets.yaml`.
+                    -   Initializes core services (e.g., `LoggingService`, `StorageService`).
+                2.  **Concurrent Execution:**
+                    -   Creates an `asyncio` event loop.
+                    -   For each target defined in the configuration, it creates and schedules a `ScraperWorker` task.
+                    -   Uses `asyncio.gather` to run all scraping tasks concurrently, with a configurable concurrency limit.
+                3.  **Graceful Shutdown:** Ensures all pending tasks are completed and files are closed properly upon termination.
+
+                ---
+
+                ## **3. Core Functional Requirements**
+
+                ### **3.1. User Configuration (`config/targets.yaml`)**
+
+                The system's behavior is entirely controlled by this file.
+
+                yaml
+                # config/targets.yaml
+
+                    concurrency_limit: 10 # Max number of scrapers to run at once.
+
+                    targets:
+                    - name: 'TechBlog'
+                        url: 'https://example-tech-blog.com/posts/latest'
+                        model_name: 'BlogPost' # Corresponds to a Pydantic model in src/models/
+                        output_file: 'techblog_posts.jsonl'
+
+                    - name: 'EcommerceProductPage'
+                        url: 'https://example-store.com/products/widget-pro'
+                        model_name: 'ProductPage'
+                        output_file: 'ecommerce_products.jsonl'
+
+
+                ### **3.2. Pydantic Data Models (`src/models/`)**
+
+                This directory defines the required data schemas.
+
+                python
+                # src/models/blog.py
+                from pydantic import BaseModel, HttpUrl
+                from datetime import datetime
+
+                class BlogPost(BaseModel):
+                    title: str
+                    author: str
+                    publication_date: datetime
+                    url: HttpUrl
+                    content_length: int
+
+                # src/models/ecommerce.py
+                from pydantic import BaseModel, HttpUrl, Field
+
+                class ProductPage(BaseModel):
+                    product_name: str
+                    sku: str
+                    price: float = Field(gt=0)
+                    url: HttpUrl
+                    in_stock: bool
+
+
+                ### **3.3. Foundational Services**
+
+                -   **`ConfigService`:** Loads and validates `targets.yaml`.
+                -   **`StorageService`:** Provides thread-safe methods to append validated Pydantic models (as JSON) to the correct output file in `output/data/`. Also handles saving raw HTML on validation failure to `output/errors/`.
+                -   **`LoggingService`:** Configures structured JSON logging for the entire application.
+
+                ### **3.4. Scraper Worker Workflow**
+
+                A single, generic `ScraperWorker` will be responsible for executing a scrape task.
+
+                1.  **Initialization:** Takes a single target configuration object (e.g., for 'TechBlog').
+                2.  **Browser Automation:** Launches a Playwright instance, navigates to the target `url`.
+                3.  **Data Extraction:** Uses a combination of CSS selectors and logic to extract the raw data fields required by its assigned `model_name`.
+                4.  **Validation & Storage:**
+                    -   Attempts to instantiate the Pydantic model (e.g., `BlogPost(**raw_data)`).
+                    -   **On Success:** Passes the validated model instance to the `StorageService`.
+                    -   **On `ValidationError`:** Catches the exception, logs the detailed validation error, and instructs the `StorageService` to save the page's raw HTML for debugging.
+
+                ---
+
+                ## **4. User Interface and End-to-End Validation**
+
+                ### **4.1. Command-Line Interface (CLI)**
+
+                The primary user interface will be a simple but powerful CLI using a library like `Typer` or `argparse`.
+
+                -   `python run.py all`: Runs the scraper for all targets defined in `targets.yaml`.
+                -   `python run.py single --name TechBlog`: Runs the scraper for only a single, named target.
+                -   `python run.py list-targets`: Prints a list of all configured targets.
+
+                ### **4.2. End-to-End (E2E) Test Suite**
+
+                E2E tests will use `Pytest` and `pytest-playwright` to validate complete workflows against local mock HTML files.
+
+                -   **Key Scenarios to Test:**
+                    1.  **"Happy Path":** `run.py single` successfully scrapes a mock HTML file, validates the data against a Pydantic model, and writes a single line to the correct JSONL file.
+                    2.  **Validation Failure:** The scraper attempts to scrape a malformed mock HTML file, a `ValidationError` is raised, a detailed error is logged, and the raw HTML is saved to the `output/errors` directory.
+                    3.  **Concurrency Test:** `run.py all` with multiple mock targets runs concurrently and produces the correct output for all successful targets.
+                    4.  **404 Not Found:** A target URL points to a non-existent page; the system logs the error gracefully and moves on.
+
+                ---
+
+                ## **5. Error Handling and Resiliency**
+
+                ### **5.1. Tiered Failure Response Policy**
+
+                | Error Scenario                   | Agent/Service      | Automated Response                                                                                             |
+                | :------------------------------- | :----------------- | :------------------------------------------------------------------------------------------------------------- |
+                | **URL Not Found (404)**          | `ScraperWorker`    | Log `ERROR` with URL. Update status. Move to next target.                                                      |
+                | **Playwright Timeout**           | `ScraperWorker`    | Log `WARNING`. Retry navigation once. If it fails again, log `ERROR` and move on.                               |
+                | **Pydantic `ValidationError`**   | `ScraperWorker`    | **Critical Path:** Log `ERROR` with the *full validation error message*. Save raw page HTML to `output/errors/`. |
+                | **Missing Required Element**     | `ScraperWorker`    | Log `ERROR` (e.g., "Selector for 'title' not found"). Save raw page HTML.                                      |
+
+                ---
+
+                ## **6. Non-Functional Requirements (NFRs)**
+
+                -   **Performance:** The system should support the `concurrency_limit` defined in the config without significant performance degradation.
+                -   **Reliability:** Designed to be run unattended (e.g., as a nightly cron job).
+                -   **Observability:** Structured JSON logs must provide enough context to diagnose any failure without needing to re-run the scraper.
+
+                ---
+
+                ## **7. Out of Scope**
+
+                -   A graphical user interface (GUI). The CLI is sufficient.
+                -   Storing scraped data in a relational database. JSONL files are the required output format.
+                -   Automated CAPTCHA or Cloudflare solving.
+                -   Distributed scraping across multiple machines.
+
+                ---
+
+                ## **8. Success Criteria**
+
+                -   **TDD Compliance:** Core logic (`services`, `scrapers`) achieves >90% unit test coverage.
+                -   **Configuration-Driven:** The tool runs successfully, driven entirely by the `targets.yaml` file, without any code changes.
+                -   **Data Integrity:** 100% of the data in the `output/data` directory successfully validates against its corresponding Pydantic schema.
+                -   **Error Reporting:** For any failed scrape, a corresponding error log and raw HTML file are generated, allowing for immediate diagnosis.
+                -   **CLI Functionality:** All defined CLI commands (`all`, `single`, `list-targets`) work as specified.
+                ```
+        </Expandable>
+        <Expandable title="system prompt">
+                ```markdown
+                **Your Role:** You are an **AI Product Architect**. Your sole function is to help users create a comprehensive, production-grade Product Requirements Document (PRD) for their software projects. You will guide them through a structured, collaborative process based on a proven, high-quality PRD template.
+
+                **Your Core Objective:** To work with the user to translate their ideas into a detailed, well-structured, and actionable PRD. You must actively guide the user, suggest sections based on best practices, and help them articulate complex requirements clearly.
+
+                **Your Guiding Blueprint:** The structure of your conversation and the final document will be based on the following eight core sections. You will introduce and build these sections with the user one by one.
+
+                1.  **Vision and Strategy**
+                2.  **System Architecture and Phased Development**
+                3.  **Core Functional Requirements**
+                4.  **User Interface and End-to-End Validation**
+                5.  **Error Handling and Resiliency**
+                6.  **Non-Functional Requirements (NFRs)**
+                7.  **Out of Scope**
+                8.  **Success Criteria**
+
+                ---
+
+                ### Your Conversational Workflow
+
+                You will guide the user through the PRD creation process phase by phase. Do not overwhelm them by asking for everything at once. Maintain the state of the PRD as a living document throughout the conversation.
+
+                **Phase 1: The Foundation (Vision & Strategy)**
+                - **Your Task:** Start with the big picture.
+                - **Example Probes:**
+                    - "Let's start with Section 1: Vision and Strategy. First, what is the main objective of your project in one or two sentences?"
+                    - "Great. Now, who is the primary user for this? What problem are you solving for them?"
+                    - "Based on that, we should define some **Mandatory Principles**. These are the non-negotiable rules for your project. For example, should we enforce Test-Driven Development (TDD), high concurrency, or a specific security posture?"
+
+                **Phase 2: The Blueprint (System Architecture)**
+                - **Your Task:** Define the project's structure.
+                - **Example Probes:**
+                    - "Now for Section 2: System Architecture. Let's think about the project's directory structure. A good structure separates concerns. For example: `src/services`, `src/agent`, `tests/`, and a `config/` directory. Does that sound like a good starting point?"
+                    - "What is the main 'brain' or orchestrator of your system? Let's describe its lifecycle from startup to shutdown."
+
+                **Phase 3: The Engine (Core Functional Requirements)**
+                - **Your Task:** This is the most detailed section. Break it down into smaller pieces: Configuration, Services, and Workflows.
+                - **Example Probes:**
+                    - "Let's move to Section 3: Functional Requirements. How will a user configure this system? We should design the YAML configuration files now. For example, what would a `config/filters.yaml` or `config/documents.yaml` look like for your project?"
+                    - "Now let's define the core services. What are the key stateless components? For example, a `DatabaseService` or a `QueryBuilderService`. What is the exact responsibility of each?"
+                    - "What are the primary workflows or 'agents' in your system? Let's describe what triggers them and what their step-by-step process is."
+
+                **Phase 4: The Experience (UI & Testing)**
+                - **Your Task:** Define how the user interacts with the system and how you'll validate it.
+                - **Example Probes:**
+                    - "For Section 4, let's talk about the User Interface. If there is one, what are the key screens or components? For instance, a dashboard, a configuration editor, or a log viewer?"
+                    - "How will we know the entire system works end-to-end? Let's list 3-5 critical E2E test scenarios, like the 'happy path' or a specific failure case."
+
+                **Phase 5: The Safety Net (Error Handling & Resiliency)**
+                - **Your Task:** Plan for when things go wrong.
+                - **Example Probes:**
+                    - "Great projects plan for failure. In Section 5, let's define how to handle errors. Is there a need for a Human-in-the-Loop (HITL) strategy for problems the AI can't solve, like a CAPTCHA?"
+                    - "Let's create a tiered failure policy. For a specific error, like 'API rate limit reached,' what is the automated response? What is the manual response?" (Suggest creating a table like the example).
+
+                **Phase 6 and Beyond: Finalizing the Document**
+                - **Your Task:** Guide the user through the remaining sections (NFRs, Out of Scope, Success Criteria) to complete the PRD.
+                - **Example Probes:**
+                    - "We're almost done! For Section 6: Non-Functional Requirements, what are the key performance or reliability targets? (e.g., 'average response time < 500ms')."
+                    - "To prevent scope creep, let's define what's explicitly **Out of Scope** for this project in Section 7."
+                    - "Finally, in Section 8, how will we measure success? Let's list the criteria that must be met for the project to be considered complete. This should tie back to our requirements."
+
+                ---
+                ### Guiding Principles for the AI
+                - **Maintain a Living Document:** After each phase, present the updated PRD draft within a markdown block for the user's review.
+                - **Be a Structured Partner:** You are not just a scribe; you are an architect. If a user's request is vague, ask clarifying questions to fit it into the structured format.
+                - **Leverage the Example's Strength:** Proactively suggest structures from the example, such as using YAML for configs, creating tables for error handling, and defining a clear database schema.
+                - **Always Tie Back to the "Why":** Continuously connect detailed requirements back to the user's initial problem statement to ensure the project stays focused.
+                ```
+        </Expandable>
+    </Step>
+
+    <Step title="Establish Project Rules">
+        Finally, create a project rules file that outlines the non-negotiable architectural decisions and coding standards. This prevents the AI from deviating from your plan.
+
+        <Note>
+            If you're using [Claude Code](https://www.anthropic.com/claude-code), name this file `CLAUDE.md` to leverage Claude's [memory feature](https://docs.anthropic.com/en/docs/claude-code/memory). For other AI tools or general use, `PROJECT_RULES.md` works well.
+        </Note>
+
+        Like the PRD, this is a **living document** that should be updated as architectural decisions are made.
+
+        Here's an example of what a simple `CLAUDE.md` file would look like for our web scraping project:
+        ```markdown
+        # Project: Internal Web Scraper
+
+        ## 1. Architecture Decisions
+        - **Core Framework**: Playwright for browser automation.
+        - **Data Structuring**: Pydantic models for all scraped data.
+        - **Application Type**: Asynchronous command-line tool.
+
+        ## 2. Non-Negotiable Rules
+        - All web scraping must respect `robots.txt` directives.
+        - Implement a 1-second delay between requests to the same domain.
+        - Use structured logging (JSON format) for all errors and warnings.
+
+        ## 3. Code Standards
+        - All functions must include type hints and docstrings.
+        - Secrets or API keys must never be hardcoded.
+        - Test-Driven Development (TDD) is preferred.
+        ```
+
+    </Step>
+
 </Steps>
 
-<Info>
-	**Your Context Package is Ready**
+<Check>
+    Once complete, your project directory should contain the following:
 
-    Once complete, your project directory should contain the full AI-readable blueprint:
+    - `docs/*` folder with documentation knowledge files.
+    - `PRD.md` file defining the project vision, architecture, and requirements.
+    - `CLAUDE.md` file with project rules.
 
-    - A `docs/*` folder with knowledge files.
-    - A `PRD.md` file defining what to build.
-    - A `CLAUDE.md` file defining how to build it.
-
-</Info>
+</Check>
 
 ## Implement Functionality
 
