@@ -1,0 +1,153 @@
+---
+title: 'Multi-AI Iterative Development (MAID)'
+description: 'An AI-powered framework for systematic software development. Go beyond "vibe coding" to build scalable, maintainable applications.'
+icon: 'rotate-left'
+iconType: 'solid'
+author: 'Temur Bakhriddinov'
+date: 2025-08-13
+---
+
+## First, what's <span style={{background: 'linear-gradient(45deg, #b8579c, #6ba3d6, #8db672, #d67e6b, #9c85b8, #72b8a3, #b672a8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontWeight: 'bold'}}>vibe coding</span> ?
+
+<Frame caption='https://www.reddit.com/r/ProgrammerHumor/comments/1jcjrzf/vibecoding'>
+	<img
+		src='https://ik.imagekit.io/pqnkhqkwi/tmbv/multi-ai%20iterative%20development/rc5kiucui1pe1.jpeg?updatedAt=1755063956635'
+		aria-label='A humorous take on vibe coding'
+		alt='A humorous take on vibe coding'
+	/>
+</Frame>
+
+**Vibe coding** is when you jump straight into building through AI prompting with no plan—just a feeling. It feels fast, but this path almost always leads to a fragile foundation that cracks under pressure.
+
+Without a clear blueprint, the AI develops _amnesia_, changing styles and logic mid-project. This inevitably leads to scope creep, where the original problem gets lost in a half-finished product riddled with disorganized code and unexpected bugs.
+
+Instead of building on a vibe, let's build from a blueprint. The following steps provide the clarity and structure needed to create robust, scalable applications.
+
+<CardGroup cols={2}>
+	<Card
+		title='Conversational Research'
+		icon='circle-1'
+		href='#conversational-research'
+	>
+		Define project goals and "why" with Socratic dialogue.
+	</Card>
+	<Card title='Build Context' icon='circle-2' href='#build-context-library'>
+		Create the complete project blueprint before you code.
+	</Card>
+	<Card title='Implement' icon='circle-3' href='#implement-functionality'>
+		Translate the blueprint into clean, validated code.
+	</Card>
+	<Card title='Debug Issues' icon='circle-4' href='#debug-issues'>
+		Solve root causes with precise, targeted context.
+	</Card>
+</CardGroup>
+
+## Conversational Research
+
+The first and most critical step is **dialogue**. This isn't a casual chat; it's a structured conversation that prevents "vibe coding" by moving from a high-level vision to a concrete technical path. This phase has two parts: a flexible **Socratic Funnel** to define your goals, followed by **Deep Research** to validate the technical approach.
+
+This process adapts to you. A non-technical founder might spend more time on the _Why_, while a senior engineer might focus on the _How_. The goal is the same: clarity.
+
+### The Socratic Funnel
+
+You'll use an AI like [ChatGPT](https://chat.openai.com/) as a partner to progress through three distinct stages.
+
+<Steps>
+  <Step title='The "Why" (High-Level Vision)'>
+    Focus entirely on the human element. This stage is about defining the user's pain point and the ultimate goal, using simple, non-technical language.
+
+    **Key Questions to Explore:**
+    - Who is this for?
+    - Is this an internal tool or a public-facing product?
+    - What specific problem does this solve for them?
+    - What does success look like from their perspective?
+
+  </Step>
+  <Step title='The "What" (Functional Requirements)'>
+    Translate the vision into tangible features and behaviors. You're defining what the system must *do* without yet deciding on the technology.
+
+    **Key Questions to Explore:**
+    - What are the core features needed for an MVP?
+    - What kind of data will the system handle?
+    - Are there critical needs like speed, security, or scale?
+
+  </Step>
+  <Step title='The "How" (Technical Exploration)'>
+    Once the "what" is clear, you can explore the "how." This is where a non-technical person can ask the AI for suggestions, and a technical person can validate their ideas.
+
+    **Key Questions to Explore:**
+    - Based on our needs, what technologies are a good fit?
+    - What are the trade-offs between different frameworks?
+    - What would a basic system architecture look like?
+
+  </Step>
+</Steps>
+
+<Info>
+	The key is to address the stages in order, ensuring your technical decisions
+	are driven by a clear purpose. Move through the funnel at your own pace.
+</Info>
+
+### Deep Research
+
+With a list of potential technologies from "The How," you're ready to transition from conversation to documentation. Task the AI with conducting **deep research** to generate a formal analysis report. This deliverable should outline all viable tools and libraries, provide a comparison matrix of pros and cons for your use case, offer a clear recommendation, and discuss any integration considerations that might affect the overall architecture.
+
+### Putting It All Together: A Scenario
+
+Let's see how this research phase works for a non-technical user who wants to build an `internal web scraping tool`.
+
+<AccordionGroup>
+  <Accordion title="The dialogue begins with a vague idea..." icon="user">
+    **User:** "I need a way to get data from websites."
+  </Accordion>
+
+<Accordion title='The AI probes for purpose' icon='robot'>
+	**AI:** "Okay, let's explore that. What's the main goal? What will you
+	**do** with this data once you have it?"
+</Accordion>
+
+<Accordion title='The user reveals the core motivation' icon='user'>
+	**User:** "I want to feed it into another AI to train a custom model for my
+	business. The data needs to be high quality."
+</Accordion>
+
+<Accordion title='The AI defines functional needs...' icon='robot'>
+	**AI:** "Got it. That means accuracy and structure are key. What kind of
+	websites are we talking about? Simple articles, or complex pages like
+	e-commerce sites where you have to click things to see information?"
+</Accordion>
+
+<Accordion title='...and the user provides critical details' icon='user'>
+	**User:** "Both, actually. Some are simple blogs, but others are product
+	pages where prices and reviews appear dynamically."
+</Accordion>
+
+<Accordion title='The AI synthesizes and suggests a path forward' icon='robot'>
+	**AI:** "Perfect. So we need an internal tool that can scrape both static
+	and dynamic sites and output clean, structured data. Based on that, we
+	should explore technologies that can control a browser, like **Playwright**,
+	combined with a library like **Pydantic** to enforce data structure. Does
+	this sound like the right direction?"
+</Accordion>
+
+  <Accordion title="The user asks the final, informed question" icon="user">
+    **User:** "Yes, that's exactly it. What are the pros and cons of those tools you mentioned compared to others?"
+  </Accordion>
+</AccordionGroup>
+
+### From Dialogue to Deep Research
+
+That final question is the perfect outcome of the Socratic funnel. The user started with a vague idea ("get data") and ended with a specific, well-defined query ("pros and cons of these tools"). This question now becomes the direct prompt for the AI's analysis report.
+
+**Example AI Report:**
+
+```yaml
+Tool Analysis Report:
+    - BeautifulSoup: Best for simple HTML parsing. Fast and lightweight.
+    - Scrapy: Excellent for large-scale, production-level scraping.
+    - Playwright: Ideal for modern, JavaScript-heavy sites.
+    - Selenium: Good for complex browser interactions but can be slower.
+
+Recommendation: Playwright + structured output with Pydantic.
+Reasoning: Handles modern web apps, offers fast execution, and ensures type-safe outputs for reliable data processing.
+```

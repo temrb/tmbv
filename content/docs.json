@@ -13,17 +13,17 @@
 		"groups": [
 			{
 				"group": "Career",
-				"pages": ["pages/career/search-and-outreach"]
+				"pages": ["page/career/search-and-outreach"]
 			},
 			{
 				"group": "Development",
-				"pages": ["pages/development/maid"]
+				"pages": ["page/development/maid"]
 			}
 		]
 	},
 
 	"contextual": {
-		"options": ["perplexity", "chatgpt", "claude", "copy", "view"]
+		"options": ["perplexity", "claude", "copy", "view"]
 	},
 	"appearance": {
 		"default": "light",
