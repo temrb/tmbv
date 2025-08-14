@@ -30,9 +30,17 @@ date: 2025-08-13
 	/>
 </Frame>
 
-**Vibe coding** is the practice of jumping straight into AI-driven development with a vague idea and no concrete plan. While it may feel like you're moving fast, this approach often leads to a fragile foundation that can't support a scalable application.
+**Vibe coding** is the practice of diving headfirst into AI-driven development with only a hazy idea and no clear plan. While it can feel exciting and productive at first, it often results in a shaky foundation that makes future progress messy and frustrating.
 
-Without a clear blueprint, the AI can seem to have _amnesia,_ producing inconsistent code and logic. This disorganization frequently results in scope creep, bugs, and a half-finished product that fails to solve the original problem.
+Without a clear blueprint, the AI can seem forgetful, producing inconsistent code and logic. This often leads to scope creep, bugs, and an unfinished product that misses the original goal.
+
+<Frame caption='@personofswag/X'>
+	<img
+		src='https://ik.imagekit.io/pqnkhqkwi/tmbv/multi-ai%20iterative%20development/what-is-vibe-coding-5.png?updatedAt=1755207249494'
+		aria-label='Vibe coding a critical vulnerability'
+		alt='Vibe coding a critical vulnerability'
+	/>
+</Frame>
 
 Instead of building on a vibe, let's build from a blueprint. The following steps provide the clarity and structure needed to create robust, scalable applications.
 
@@ -42,23 +50,26 @@ Instead of building on a vibe, let's build from a blueprint. The following steps
 		icon='circle-1'
 		href='#conversational-research'
 	>
-		Define project goals and "why" with structured dialogue.
+		Using **general** AI to define project goals and "why" with structured
+		dialogue.
 	</Card>
 	<Card title='Build Context' icon='circle-2' href='#build-context-library'>
-		Create a detailed, machine-readable blueprint before writing any code.
+		Using **long-context** AI to create a detailed blueprint before writing
+		any code.
 	</Card>
 	<Card title='Implement' icon='circle-3' href='#implement-functionality'>
-		Translate the blueprint into clean, validated code with a specialized
-		AI.
+		Using **specialized** AI to translate the blueprint into clean,
+		high-quality code.
 	</Card>
 	<Card title='Debug Issues' icon='circle-4' href='#debug-issues'>
-		Provide targeted context to solve any issues that arise.
+		Using a combination of **long-context** and **specialized** AI to fix
+		issues.
 	</Card>
 </CardGroup>
 
 This approach of delegating tasks to specialized AIs isn't just a theoretical framework; it reflects a clear trend in how professional developers build today.
 
-The [2025 Stack Overflow Developer Survey](https://survey.stackoverflow.co/2025/) shows that while general-purpose models like **OpenAI GPT** serve as the ecosystem's starting point, developers strategically branch out to other models for specific jobs. They use tools like **Gemini** for complex reasoning and planning, and models like **Claude Sonnet** for code implementation.
+The [2025 Stack Overflow Developer Survey](https://survey.stackoverflow.co/2025/technology#worked-with-vs-want-to-work-with-ai-models-worked-want-prof) shows that while general-purpose models like **ChatGPT** serve as the ecosystem's starting point, developers strategically branch out to other models for specific jobs. They use tools like **Gemini** for complex reasoning and planning, and models like **Claude Sonnet** for code implementation.
 
 <Frame caption='https://survey.stackoverflow.co/2025/technology#worked-with-vs-want-to-work-with-ai-models-worked-want-prof'>
 	<img
@@ -85,7 +96,7 @@ The first and most critical step is **dialogue**. This isn't a casual chat, but 
 Use a conversational AI like [ChatGPT](https://chat.openai.com/) as a partner to progress through the funnel, moving from the abstract to the concrete.
 
 <Tabs>
-    <Tab title='Steps' icon='layer-group'>
+    <Tab title='Steps'>
     <Steps>
     <Step title='The Why (High-Level Vision)'>
         Focus entirely on the human element. This stage is about defining the user's pain point and the ultimate goal, using simple, non-technical language.
@@ -117,7 +128,7 @@ Use a conversational AI like [ChatGPT](https://chat.openai.com/) as a partner to
     </Step>
     </Steps>
     </Tab>
-    <Tab title='System Prompt' icon='comment-arrow-up'>
+    <Tab title='System Prompt'>
     ```markdown
     **Your Role:** You are an **AI Project Strategist**. Your purpose is to act as a technical consultant who helps users flesh out their software project ideas through a natural, guided conversation. You will actively use your knowledge to provide insights, suggest technologies, and collaboratively shape the project's technical direction.
 
@@ -221,7 +232,7 @@ With a list of potential technologies from the "How" stage, you can now task the
 	<Accordion title='The dialogue begins with a vague idea...' icon='user'>
 		**User:** "I need a way to get data from websites."
 	</Accordion>
-	<Accordion title='The AI probes for the "Why"' icon='robot'>
+	<Accordion title='The AI probes for the "Why"' icon='bolt'>
 		**AI:** "Okay, let's explore that. What's the main goal? What will you
 		**do** with this data once you have it?"
 	</Accordion>
@@ -229,7 +240,7 @@ With a list of potential technologies from the "How" stage, you can now task the
 		**User:** "I want to feed it into another AI to train a custom model for
 		my business. The data needs to be high quality."
 	</Accordion>
-	<Accordion title='The AI defines the "What"' icon='robot'>
+	<Accordion title='The AI defines the "What"' icon='bolt'>
 		**AI:** "Got it. That means accuracy and structure are key. What kind of
 		websites are we talking about? Simple articles, or complex pages where
 		you have to click to see information?"
@@ -238,7 +249,7 @@ With a list of potential technologies from the "How" stage, you can now task the
 		**User:** "Both, actually. Some are simple blogs, but others are product
 		pages where prices and reviews appear dynamically."
 	</Accordion>
-	<Accordion title='The AI suggests the "How"' icon='robot'>
+	<Accordion title='The AI suggests the "How"' icon='bolt'>
 		**AI:** "Perfect. So we need an internal tool that can scrape both
 		static and dynamic sites and output clean, structured data. Based on
 		that, we should explore technologies that can control a browser, like
@@ -262,7 +273,7 @@ This is the most critical phase—creating a machine-readable _context package_ 
     First, gather comprehensive documentation for the libraries and frameworks you chose during the Research phase. If the AI doesn’t have the manufacturer's instructions, it will hallucinate, leading to bugs and deprecated code.
 
     <Tabs>
-        <Tab title="Deep Control" icon="code">
+        <Tab title="Deep Control">
             For fine-grained control, use [gpt-crawler](https://github.com/BuilderIO/gpt-crawler) to create a `docs` folder containing custom knowledge files from documentation websites.
 
             1) **Set up the crawler**
@@ -296,7 +307,7 @@ This is the most critical phase—creating a machine-readable _context package_ 
             ```
             This command generates a JSON file in the `docs` folder, ready to be used as context.
         </Tab>
-        <Tab title="Quick Start" icon="rocket">
+        <Tab title="Quick Start">
             For a faster, no-code approach, a service like [Context7](https://context7.com) (available as MCP) allows you to simply paste documentation URLs. It handles the crawling and provides a ready-to-use context package for your AI.
         </Tab>
     </Tabs>
@@ -304,7 +315,7 @@ This is the most critical phase—creating a machine-readable _context package_ 
     </Step>
 
     <Step title="Draft the Product Requirements Document">
-        Next, translate your high-level goals into a detailed specification by creating a `PRD.md` file. Use a **long-context AI** (like [Gemini](https://aistudio.google.com/) or a [local model](https://lmstudio.ai/)) to help you draft it, asking clarifying questions to ensure no detail is missed.
+        Next, translate your high-level goals into a detailed specification by creating a `PRD.md` file. Use a **long-context** AI (like [Gemini](https://aistudio.google.com/) or [local model](https://lmstudio.ai/)) to help you draft it, asking clarifying questions to ensure no detail is missed.
         <Tip>
         The PRD is a **living document**. It will evolve as the project progresses, but it serves as the definitive guide for what to build at any given time.
         </Tip>
@@ -645,4 +656,268 @@ This is the most critical phase—creating a machine-readable _context package_ 
 
 ## Implement Functionality
 
+With the Context Library built, you transition from architect to project manager. Your role is no longer to invent, but to direct. You'll hand off the detailed blueprint to a **specialized coding AI** (like [Claude Code](https://www.anthropic.com/claude-code)) whose sole job is to translate your plan into clean, validated code.
+
+This is where the power of a well-defined blueprint shines. Instead of piecemeal prompts, you can provide the entire `PRD.md`, and for many projects, the AI can generate the entire application skeleton in a single pass.
+
+<Note>
+	A key feature of Claude Code is its ability to automatically detect and
+	apply rules from a `CLAUDE.md` file in your project's root. This means your
+	prompts can be more direct, focusing on the **what** (from the PRD) while
+	trusting the AI to handle the **how** (from the rules file) without being
+	explicitly told.
+</Note>
+
+### Choosing Your Implementation Strategy
+
+Depending on your project's scale, you can choose one of two primary strategies:
+
+<Tabs>
+  <Tab title="Holistic (Most projects)">
+    This is the fastest way to get started. You provide the AI with the entire Context Library (`PRD.md`, `CLAUDE.md`, and any `docs/` files) and instruct it to generate the complete initial codebase. This is highly effective for new projects or applications of small-to-medium complexity.
+
+    **Your Role:** Act as a system architect, reviewing the entire generated structure to ensure it aligns with the vision before proceeding.
+
+  </Tab>
+  <Tab title="Modular (Larger projects)">
+    For very large or complex systems, generating everything at once can be overwhelming to review. In this case, you can break the `PRD.md` down into logical modules (e.g., "Authentication Service," "Data Processing Pipeline," "API Endpoints") and have the AI implement them one by one.
+
+    **Your Role:** Act as a technical lead, integrating each new module into the main codebase and ensuring seamless interaction between components.
+
+  </Tab>
+</Tabs>
+
+Regardless of the strategy, the core loop remains the same:
+
+- **Delegate** - Fully or partially hand off PRD to AI.
+- **Generate & Review** - The AI generates the code. You act as the quality assurance engineer, verifying that the output matches the blueprint.
+- **Iterate** - Once the foundation is built, you continue the loop by delegating new features or refinements.
+
+### Scenario w/ Holistic Generation in Action
+
+<AccordionGroup>
+  <Accordion title="The user provides a direct, PRD-focused prompt" icon="user">
+    **User:** "Using the attached `PRD.md` as your guide, please generate the entire initial project structure and the complete code for all foundational services: `ConfigService`, `StorageService`, and `LoggingService`."
+  </Accordion>
+
+<Accordion
+	title='The AI confirms its context and executes the plan'
+	icon='robot'
+>
+	**AI:** "Understood. I have loaded your `PRD.md` and will apply the
+	architectural rules and standards found in your `CLAUDE.md` file. I will now
+	generate the initial project structure and all specified foundational
+	services. Here is the output:"
+</Accordion>
+
+  <Accordion title="The AI generates the code exactly as specified" icon="code">
+
+    **Example AI-Generated Output:**
+
+    "Here is the directory structure based on Section 2.1 of the PRD:"
+    ```bash
+    .
+    ├── config/
+    │   └── targets.yaml
+    ├── src/
+    │   ├── services/
+    │   │   ├── __init__.py
+    │   │   ├── config_service.py
+    │   │   ├── logging_service.py
+    │   │   └── storage_service.py
+    │   ├── models/
+    │   └── scrapers/
+    ├── tests/
+    └── run.py
+    ```
+
+    "And here is the code for `src/services/storage_service.py`, adhering to the PRD's requirements and the coding standards from `CLAUDE.md` (type hints, docstrings, structured logging):"
+
+    ```python title="src/services/storage_service.py"
+    import asyncio
+    import json
+    import logging
+    from pathlib import Path
+    from typing import Dict, Any
+    import aiofiles
+    from pydantic import BaseModel
+
+    # Get the logger configured by LoggingService
+    logger = logging.getLogger(__name__)
+
+    class StorageService:
+        """
+        Provides async, thread-safe methods for storing validated data and error logs.
+        """
+        def __init__(self, output_dir: Path = Path("output")):
+            self.output_dir = output_dir
+            self.data_dir = self.output_dir / "data"
+            self.error_dir = self.output_dir / "errors"
+            self._locks: Dict[str, asyncio.Lock] = {}
+            self._create_directories()
+
+        def _create_directories(self) -> None:
+            """Creates the necessary output directories if they don't exist."""
+            self.data_dir.mkdir(parents=True, exist_ok=True)
+            self.error_dir.mkdir(parents=True, exist_ok=True)
+
+        async def _get_lock(self, filename: str) -> asyncio.Lock:
+            """Lazily creates and returns a lock for a given filename."""
+            if filename not in self._locks:
+                self._locks[filename] = asyncio.Lock()
+            return self._locks[filename]
+
+        async def save_validated_data(self, model_instance: BaseModel, output_file: str) -> None:
+            """
+            Appends a validated Pydantic model as a JSON line to the specified file.
+            """
+            path = self.data_dir / output_file
+            lock = await self._get_lock(output_file)
+
+            async with lock:
+                try:
+                    async with aiofiles.open(path, mode='a', encoding='utf-8') as f:
+                        await f.write(model_instance.model_dump_json() + '\n')
+                    logger.info(
+                        "Successfully saved data to %s",
+                        output_file,
+                        extra={"url": str(getattr(model_instance, 'url', 'N/A'))}
+                    )
+                except Exception:
+                    logger.error("Failed to write to file %s", output_file, exc_info=True)
+
+        async def save_error_html(self, html_content: str, failed_url: str) -> None:
+            """
+            Saves the raw HTML of a page that failed validation for debugging.
+            """
+            sanitized_name = "".join(c if c.isalnum() else "_" for c in failed_url)
+            filename = f"error_{sanitized_name}.html"
+            path = self.error_dir / filename
+
+            try:
+                async with aiofiles.open(path, mode='w', encoding='utf-8') as f:
+                    await f.write(html_content)
+                logger.warning("Saved raw HTML for failed validation to %s", filename)
+            except Exception:
+                logger.error("Failed to save error HTML for %s", failed_url, exc_info=True)
+    ```
+
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+	Always prompt the AI to explain its choices. For example: "Confirm that this
+	implementation of `StorageService` fully meets all requirements laid out in
+	sections 3.3 and 5.1 of the PRD." This forces the AI to cross-reference the
+	blueprint and helps you catch deviations early.
+</Tip>
+
 ## Debug Issues
+
+Bugs are inevitable, but a well-structured project turns debugging from a frustrating guessing game into a systematic process. In the MAID framework, your role is to act as a **Context Curator**.
+
+Instead of asking the AI, "Why is my code broken?", you provide it with a precise package of information to diagnose the root cause.
+
+This process relies on the blueprint you've already built. The AI doesn't need to guess what the code _should_ do; it can compare the buggy behavior against the project's official source of truth—the `PRD.md`.
+
+<Steps>
+    <Step title="Isolate the Problem">
+        Before calling the AI, reproduce the bug and pinpoint the symptom—is it a validation error, browser crash, or configuration issue?
+    </Step>
+    <Step title="Gather Precise Context">
+        Once you know the symptom, gather the three key pieces of context the AI needs for an accurate diagnosis:
+
+        - **The Error Log** - A well-configured logging service (as defined in our PRD) is critical. The structured JSON log provides the exact error message and traceback.
+        - **The Relevant Code** - Provide the specific file(s) where the error is occurring. Don't give it the entire codebase; focus its attention.
+        - **The Expected Behavior** - This is the most important part. Reference the specific section of the `PRD.md` or `CLAUDE.md` that defines how the system *should* have behaved.
+    </Step>
+    <Step title="Delegate the Fix to the AI">
+        Your final step is to hand the curated context package to an AI. The quality of the AI's proposed solution is directly proportional to the quality of your prompt. Whether you're using an IDE-integrated tool like **Claude Code** or a powerful long-context model like **Gemini**, the structure of the prompt remains the same.
+
+        Your prompt should be a direct command, not a question. It must contain three elements:
+        - **The Goal** - A clear statement of the desired outcome (e.g., "Find the root cause and provide the corrected code.").
+        - **The Evidence** - The complete context package you just assembled (error logs, relevant code files).
+        - **The Source of Truth** - A direct reference to the section in your `PRD.md` or `PROJECT_RULES.md` that defines the correct behavior. This forces the AI to solve the problem based on your blueprint, not by guessing.
+
+    </Step>
+
+</Steps>
+
+### Scenario: Solving a Pydantic Validation Error
+
+Let's imagine our web scraper runs, but we notice that no data is being saved for the 'TechBlog' target.
+
+<AccordionGroup>
+  <Accordion title="The user identifies the symptom and finds the log" icon="user">
+    **User:** "The scraper completed, but the `techblog_posts.jsonl` file is empty. I've checked the logs and found a recurring `ValidationError`."
+
+    **Attached `logs/app.log`:**
+    ```json
+    {
+        "level": "ERROR",
+        "message": "Pydantic validation failed for TechBlog",
+        "timestamp": "2025-08-14T10:00:00Z",
+        "extra": {
+            "url": "https://example-tech-blog.com/posts/latest",
+            "error": "1 validation error for BlogPost\npublication_date\n  Input should be a valid datetime, invalid character in year (type=datetime_invalid_character; position=year)"
+        }
+    }
+    ```
+
+  </Accordion>
+
+<Accordion title='The user provides targeted context for the AI' icon='user'>
+	**User:** "It looks like there's a Pydantic validation error related to `publication_date` when scraping the 'TechBlog' target.
+
+    Here are the relevant files:
+    - `src/models/blog.py` (where `BlogPost` is defined)
+    - `src/scrapers/blog_scraper.py` (the code that extracts the date)
+
+    According to section 3.2 of our `PRD.md`, the `publication_date` field must be a `datetime` object. Please review the scraper logic and the model to find the mismatch and fix it."
+
+</Accordion>
+
+<Accordion title='The AI cross-references the files and the PRD to find the root cause' icon='robot'>
+	**AI:** "Understood. I have analyzed the provided context.
+
+    - **Diagnosis:** The error log confirms the `publication_date` field is receiving a string that cannot be parsed directly into a `datetime` object. The `blog_scraper.py` is likely extracting a human-readable date format (e.g., "August 14, 2025") that Pydantic doesn't recognize by default.
+    - **Solution:** I will add a custom validator to the `BlogPost` model in `src/models/blog.py` to parse this specific date format before validation occurs. This keeps the scraper clean and centralizes the validation logic within the model, adhering to our schema-first principle."
+
+</Accordion>
+
+<Accordion title='The AI provides the corrected code' icon='code'>
+    **AI:** "Here is the updated `src/models/blog.py` file with the fix:"
+
+    ```python title="src/models/blog.py"
+    from pydantic import BaseModel, HttpUrl, field_validator
+    from datetime import datetime
+
+    class BlogPost(BaseModel):
+        title: str
+        author: str
+        publication_date: datetime
+        url: HttpUrl
+        content_length: int
+
+        @field_validator('publication_date', mode='before')
+        @classmethod
+        def parse_publication_date(cls, value: str) -> datetime:
+            """
+            Parses a string like 'August 14, 2025' into a datetime object.
+            """
+            if isinstance(value, str):
+                try:
+                    # Attempt to parse the expected string format
+                    return datetime.strptime(value, '%B %d, %Y')
+                except ValueError:
+                    raise ValueError(f"Invalid date format: {value}")
+            return value
+
+    ```
+    **Explanation:** The `@field_validator` decorator intercepts the incoming `publication_date` string. It uses `datetime.strptime` to parse the specific format into a valid `datetime` object before Pydantic performs its own validation. This resolves the error while keeping the data model robust."
+
+</Accordion>
+
+</AccordionGroup>
+
+## ➿ Iterate and Refine
