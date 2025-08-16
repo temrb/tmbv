@@ -1,0 +1,8 @@
+{
+  "extends": "@tmbv/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}

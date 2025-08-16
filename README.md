@@ -1,35 +1,40 @@
-# tmbv-site
+# tmbv
 
-> Personal site and blog for [tmbv.me](https://www.tmbv.me/) built with Mintlify
+> Personal site and blog for [tmbv.me](https://www.tmbv.me/) - Monorepo with shared configurations
 
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Ftmbv.me)](https://tmbv.me)
 [![Built with Mintlify](https://img.shields.io/badge/Built%20with-Mintlify-blue)](https://mintlify.com)
 
 ## 📖 About
 
-This repository contains the source code for my personal website and blog, hosted at **[tmbv.me](https://www.tmbv.me/)**. The site is built using [Mintlify](https://mintlify.com/), a modern documentation platform that provides beautiful, fast, and customizable documentation experiences.
+This monorepo contains the source code for my personal website and blog, hosted at **[tmbv.me](https://www.tmbv.me/)**. It includes both a Mintlify-based content site and a Next.js web application with shared configurations.
 
 ## 🏗️ Architecture
 
 ```text
 tmbv/
-├── content/          # Documentation and content files (Mintlify site)
-├── app/              # App-level logic and components
-├── README.md         # Project documentation
+├── apps/             # Applications
+│   ├── content/          # Documentation and content files (Mintlify site)
+│   └── web/              # Next.js web application
+├── packages/         # Shared packages and configurations
+│   ├── eslint-config/    # Shared ESLint configuration
+│   └── typescript-config/ # Shared TypeScript configuration
+├── package.json      # Root workspace configuration
 └── ...
 ```
 
-| Directory      | Description                                                        |
-| -------------- | ------------------------------------------------------------------ |
-| **`content/`** | Contains all documentation and content files for the Mintlify site |
-| **`app/`**     | Contains app-level logic and components                            |
+| Directory           | Description                                                        |
+| ------------------- | ------------------------------------------------------------------ |
+| **`apps/content/`** | Contains all documentation and content files for the Mintlify site |
+| **`apps/web/`**     | Next.js web application                                            |
+| **`packages/`**     | Shared packages for ESLint, TypeScript, and other configurations   |
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/)
-- Any package manager (npm, pnpm, bun)
+- [Bun](https://bun.sh/) (recommended package manager)
 
 ### Local Development
 
@@ -40,35 +45,34 @@ tmbv/
     cd tmbv
     ```
 
-2. **Install Mintlify** (choose one option)
-
-    **Option A: Global installation**
+2. **Install dependencies**
 
     ```bash
-    npm install -g mint
+    bun install
     ```
 
-    **Option B: Use npx (no installation required)**
+3. **Start development servers**
+
+    **For the web application:**
 
     ```bash
-    # Skip to step 3 and use `npx mint dev` instead
+    bun run dev
+    # or specifically: bun run --filter @tmbv/web dev
     ```
 
-3. **Start the development server**
+    **For the content site (Mintlify):**
 
     ```bash
-    cd content
-    mint dev
-    # or if using npx: npx mint dev
+    cd apps/content
+    npx mint dev
     ```
 
-4. **Open your browser**
-
-    The site will automatically open at `http://localhost:3000/` with hot-reload enabled for real-time editing.
-
-5. **Start editing**
-
-    Make changes to files in the `content/` directory and see them reflected instantly in your browser.
+4. **Available scripts**
+    - `bun run dev` - Start web development server
+    - `bun run build` - Build web application
+    - `bun run lint` - Run ESLint across all workspaces
+    - `bun run format` - Format code with Prettier
+    - `bun run clean` - Clean all node_modules and build artifacts
 
 ## 🌐 Deployment
 

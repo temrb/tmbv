@@ -1,11 +1,29 @@
 {
-	"scripts": {
-		"format": "prettier \"**/*.{css,js,ts,tsx,md,mdx}\" --write",
-		"format:check": "prettier \"**/*.{css,js,ts,tsx,md,mdx}\" --check"
-	},
-	"dependencies": {},
-	"devDependencies": {
-		"prettier": "3.6.2",
-		"prettier-plugin-organize-imports": "^4.2.0"
-	}
+  "name": "tmbv",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "bun run --filter @tmbv/web dev",
+    "build": "bun run --filter @tmbv/web build",
+    "start": "bun run --filter @tmbv/web start",
+    "lint": "bun run --filter \"*\" lint",
+    "format": "prettier \"**/*.{css,js,ts,tsx,md,mdx}\" --write",
+    "format:check": "prettier \"**/*.{css,js,ts,tsx,md,mdx}\" --check",
+    "clean": "bun run --filter \"*\" clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "prettier": "3.6.2",
+    "prettier-plugin-organize-imports": "^4.2.0",
+    "@typescript-eslint/eslint-plugin": "^8.15.0",
+    "@typescript-eslint/parser": "^8.15.0",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "typescript": "^5.7.2"
+  },
+  "packageManager": "bun@1.1.42"
 }
